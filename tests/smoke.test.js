@@ -2,9 +2,11 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFile } from 'node:fs/promises';
 
-const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+const names = Array.from({ length: 20 }, (_, index) => `part-${String(index).padStart(2, '0')}.txt`);
+const encoded = (await Promise.all(names.map((name) => readFile(new URL(`../payload/${name}`, import.meta.url), 'utf8')))).join('');
+const html = Buffer.from(encoded, 'base64').toString('utf8');
 
-test('ships as a self-contained playable page', () => {
+test('payload reconstructs the complete playable game', () => {
   assert.ok(html.length > 100_000);
   assert.match(html, /Recycle Rush/);
   assert.match(html, /factory_boost/);
