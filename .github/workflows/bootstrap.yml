@@ -36,3 +36,5 @@ jobs:
           git add -A
           git commit -m "build playable vertical slice"
           git push origin HEAD:agent/playable-vertical-slice
+
+# Retrigger after the workflow exists on the branch.
