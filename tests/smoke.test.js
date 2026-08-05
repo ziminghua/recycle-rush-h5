@@ -1,10 +1,11 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFile } from 'node:fs/promises';
+import { gunzipSync } from 'node:zlib';
 
-const names = Array.from({ length: 20 }, (_, index) => `part-${String(index).padStart(2, '0')}.txt`);
+const names = ['game-00.txt', 'game-01.txt', 'game-02.txt', 'game-03.txt'];
 const encoded = (await Promise.all(names.map((name) => readFile(new URL(`../payload/${name}`, import.meta.url), 'utf8')))).join('');
-const html = Buffer.from(encoded, 'base64').toString('utf8');
+const html = gunzipSync(Buffer.from(encoded, 'base64')).toString('utf8');
 
 test('payload reconstructs the complete playable game', () => {
   assert.ok(html.length > 100_000);
