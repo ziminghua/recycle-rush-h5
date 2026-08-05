@@ -1,9 +1,10 @@
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { gunzipSync, gzipSync } from 'node:zlib';
 
 const loader = await readFile('index.html', 'utf8');
-const payloadNames = Array.from({ length: 20 }, (_, index) => `part-${String(index).padStart(2, '0')}.txt`);
+const payloadNames = ['game-00.txt', 'game-01.txt', 'game-02.txt', 'game-03.txt'];
 const encoded = (await Promise.all(payloadNames.map((name) => readFile(`payload/${name}`, 'utf8')))).join('');
-const source = Buffer.from(encoded, 'base64').toString('utf8');
+const source = gunzipSync(Buffer.from(encoded, 'base64')).toString('utf8');
 const profiles = {
   basic: { channel: 'crazygames-basic', adsMode: 'disabled', useCrazyGamesData: true },
   full: { channel: 'crazygames-full', adsMode: 'auto', useCrazyGamesData: true },
@@ -18,7 +19,7 @@ for (const [mode, profile] of Object.entries(profiles)) {
   if (mode === 'standalone') {
     html = html.replace(/\s*<script src="https:\/\/sdk\.crazygames\.com\/crazygames-sdk-v3\.js"><\/script>/, '');
   }
-  const outputEncoded = Buffer.from(html, 'utf8').toString('base64');
+  const outputEncoded = gzipSync(Buffer.from(html, 'utf8'), { level: 9 }).toString('base64');
   const chunkSize = Math.ceil(outputEncoded.length / payloadNames.length);
   for (let index = 0; index < payloadNames.length; index += 1) {
     await writeFile(`${dir}/payload/${payloadNames[index]}`, outputEncoded.slice(index * chunkSize, (index + 1) * chunkSize));
