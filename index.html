@@ -11,7 +11,7 @@
   <div class="loading">Loading Recycle Rush…</div>
   <script>
     (async () => {
-      const files = ['part-00.txt','part-01.txt','part-02.txt','part-03.txt','part-04.txt','part-05.txt','part-06.txt'];
+      const files = Array.from({ length: 20 }, (_, index) => `part-${String(index).padStart(2, '0')}.txt`);
       const parts = await Promise.all(files.map((name) => fetch(`./payload/${name}`).then((response) => {
         if (!response.ok) throw new Error(`Failed to load ${name}`);
         return response.text();
