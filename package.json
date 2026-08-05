@@ -1,0 +1,13 @@
+{
+  "name": "recycle-rush-h5",
+  "private": true,
+  "version": "1.0.0-rc.1",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "test": "node --test tests/smoke.test.js",
+    "build": "node scripts/build.mjs",
+    "validate": "npm test && npm run build"
+  },
+  "engines": { "node": ">=20" }
+}
