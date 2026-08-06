@@ -15,8 +15,12 @@
   display:none!important;
 }
 
-/* No persistent outlines or duplicate affordability indicators on the map. */
-.hit.affordable::after{display:none!important}
+/* No persistent outlines, floating values or duplicate affordability indicators. */
+.hit.affordable::after,
+.level-pop,
+.coin-fx{
+  display:none!important;
+}
 
 /* Hit targets are invisible. Only a brief press tint is allowed. */
 .hit{
@@ -24,6 +28,7 @@
   -webkit-appearance:none;
   appearance:none;
   touch-action:manipulation;
+  border-radius:8px;
 }
 .hit:focus,.hit:focus-visible{outline:none!important;box-shadow:none!important}
 .hit:active{
@@ -32,11 +37,4 @@
 }
 .hit[data-station]:active{
   background:linear-gradient(#ffe27a38,#ffc22924)!important;
-}
-
-/* Effects must never sit over the painted station cards. */
-.level-pop,.coin-fx{
-  font-size:clamp(12px,1.9vw,18px);
-  max-width:34%;
-  white-space:nowrap;
 }
