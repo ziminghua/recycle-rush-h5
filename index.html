@@ -1,1 +1,71 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><title>Recycle Rush: Idle Factory</title><style>*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#07131d;font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,sans-serif}body{display:grid;place-items:center}#stage{position:relative;width:min(100vw,56.25vh);height:min(100vh,177.7778vw);max-width:900px;max-height:1600px;background:#0d1b26;overflow:hidden;box-shadow:0 0 70px #000b}#game{display:block;width:100%;height:100%}.hit{cursor:pointer;fill:transparent;pointer-events:all}.station-card,.boost-card,.nav-card,.upgrade-button{filter:url(#shadow)}.station-card{transition:filter .15s}.station-card:hover{filter:url(#shadowStrong)}#toast{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%) scale(.94);min-width:260px;max-width:76%;padding:16px 24px;border:3px solid #c9f3ff;border-radius:18px;background:linear-gradient(#183c55,#0d2435);color:#fff;text-align:center;font-weight:900;font-size:clamp(14px,2.4vw,24px);box-shadow:0 12px 32px #000b;opacity:0;pointer-events:none;transition:.18s;z-index:10}#toast.show{opacity:1;transform:translate(-50%,-50%) scale(1)}@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}@keyframes belt{to{stroke-dashoffset:-30}}.worker{animation:bob 1.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.belt-line{animation:belt 1.4s linear infinite}@media(max-width:520px){#stage{box-shadow:none}}</style></head><body><div id="stage"><div id="mount" style="width:100%;height:100%"></div><div id="toast"></div></div><script>(async()=>{const files=['ui-svg-0.txt','ui-svg-1.txt','ui-svg-2.txt','ui-svg-3.txt'];const svg=(await Promise.all(files.map(n=>fetch('./payload/'+n).then(r=>{if(!r.ok)throw Error(n);return r.text()})))).join('');document.getElementById('mount').innerHTML=svg;const toast=document.getElementById('toast');let t;const show=x=>{toast.textContent=x;toast.classList.add('show');clearTimeout(t);t=setTimeout(()=>toast.classList.remove('show'),1300)};let saved={};try{saved=JSON.parse(localStorage.getItem('recycleRushVisualV2')||'{}')}catch{}const levels=saved.levels||{1:25,2:30,3:28,4:26,5:20,6:22};const render=()=>Object.entries(levels).forEach(([id,lv])=>{const e=document.getElementById('level'+id);if(e)e.textContent='Lv.'+lv});render();document.querySelectorAll('[data-station]').forEach(e=>e.onclick=()=>{const id=e.dataset.station;levels[id]++;render();localStorage.setItem('recycleRushVisualV2',JSON.stringify({levels}));show(id+'号设备升级到 Lv.'+levels[id])});const bind=(s,msg)=>{const e=document.querySelector(s);if(e)e.onclick=()=>show(msg)};bind('[data-action="double"]','双倍收益已启动：5分钟');bind('[data-action="truck"]','快速运输已启动：5分钟');bind('[data-action="offline"]','离线收益已结算');bind('[data-action="factory"]','工厂升级需要 256M');document.querySelectorAll('[data-nav]').forEach(e=>e.onclick=()=>show(e.dataset.nav+'功能开发中'))})().catch(e=>document.getElementById('mount').innerHTML='<pre style="color:white;padding:20px">'+e+'</pre>')</script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Recycle Rush: Idle Factory</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#07131d;font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,sans-serif}
+body{display:grid;place-items:center}
+#stage{position:relative;width:min(100vw,56.25vh);height:min(100vh,177.7778vw);max-width:900px;max-height:1600px;overflow:hidden;background:#07131d;box-shadow:0 0 70px #000b}
+#art{display:block;width:100%;height:100%;object-fit:contain}
+.hit{position:absolute;border:0;background:transparent;cursor:pointer}
+#toast{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%) scale(.94);min-width:250px;max-width:76%;padding:14px 22px;border:3px solid #c9f3ff;border-radius:18px;background:linear-gradient(#183c55,#0d2435);color:#fff;text-align:center;font-weight:900;font-size:clamp(14px,2.4vw,24px);box-shadow:0 12px 32px #000b;opacity:0;pointer-events:none;transition:.18s;z-index:20}
+#toast.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
+@media(max-width:520px){#stage{box-shadow:none}}
+</style>
+</head>
+<body>
+<div id="stage">
+<img id="art" alt="Recycle Rush 游戏界面">
+<button class="hit" data-station="1" style="left:38%;top:25%;width:24%;height:8%" aria-label="升级分类台"></button>
+<button class="hit" data-station="2" style="left:62%;top:25%;width:23%;height:8%" aria-label="升级塑料破碎机"></button>
+<button class="hit" data-station="3" style="left:37%;top:46%;width:24%;height:8%" aria-label="升级纸张压缩机"></button>
+<button class="hit" data-station="4" style="left:62%;top:47%;width:24%;height:8%" aria-label="升级包装站"></button>
+<button class="hit" data-station="5" style="left:37%;top:68%;width:23%;height:8%" aria-label="升级仓库"></button>
+<button class="hit" data-station="6" style="left:64%;top:68%;width:23%;height:8%" aria-label="升级装车区"></button>
+<button class="hit" data-action="double" style="left:88%;top:16%;width:10%;height:13%" aria-label="双倍收益"></button>
+<button class="hit" data-action="truck" style="left:88%;top:30%;width:10%;height:13%" aria-label="快速运输"></button>
+<button class="hit" data-action="offline" style="left:88%;top:44%;width:10%;height:13%" aria-label="离线收益"></button>
+<button class="hit" data-action="factory" style="left:68%;top:87%;width:28%;height:7%" aria-label="工厂升级"></button>
+<button class="hit" data-nav="工厂" style="left:0;top:94%;width:20%;height:6%" aria-label="工厂"></button>
+<button class="hit" data-nav="工人" style="left:20%;top:94%;width:20%;height:6%" aria-label="工人"></button>
+<button class="hit" data-nav="研究" style="left:40%;top:94%;width:20%;height:6%" aria-label="研究"></button>
+<button class="hit" data-nav="收集" style="left:60%;top:94%;width:20%;height:6%" aria-label="收集"></button>
+<button class="hit" data-nav="商店" style="left:80%;top:94%;width:20%;height:6%" aria-label="商店"></button>
+<div id="toast"></div>
+</div>
+<script>
+(async()=>{
+ const files=Array.from({length:8},(_,i)=>`ui-img-${i}.txt`);
+ const parts=await Promise.all(files.map(n=>fetch(`./payload/${n}`).then(r=>{
+   if(!r.ok) throw new Error(`加载失败: ${n}`);
+   return r.text();
+ })));
+ const art=document.getElementById('art');
+ await new Promise((resolve,reject)=>{
+   art.onload=resolve;
+   art.onerror=reject;
+   art.src='data:image/webp;base64,'+parts.join('');
+ });
+ const toast=document.getElementById('toast');
+ let timer;
+ const show=msg=>{
+   toast.textContent=msg;
+   toast.classList.add('show');
+   clearTimeout(timer);
+   timer=setTimeout(()=>toast.classList.remove('show'),1100);
+ };
+ document.querySelectorAll('[data-station]').forEach(el=>el.onclick=()=>show(`${el.dataset.station}号设备升级`));
+ document.querySelector('[data-action="double"]').onclick=()=>show('双倍收益已启动');
+ document.querySelector('[data-action="truck"]').onclick=()=>show('快速运输已启动');
+ document.querySelector('[data-action="offline"]').onclick=()=>show('离线收益已结算');
+ document.querySelector('[data-action="factory"]').onclick=()=>show('工厂升级需要 256M');
+ document.querySelectorAll('[data-nav]').forEach(el=>el.onclick=()=>show(el.dataset.nav));
+})().catch(err=>{
+ document.body.innerHTML=`<pre style="color:white;padding:20px">${err.stack||err}</pre>`;
+});
+</script>
+</body>
+</html>
