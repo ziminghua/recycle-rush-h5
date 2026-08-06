@@ -1,0 +1,13 @@
+/* Interaction regions follow the enlarged crisp controls. */
+.hit[data-action="tasks"]{left:.8%!important;top:10.8%!important;width:27.2%!important;height:23.3%!important}
+.hit[data-station="1"]{left:43.0%!important;top:21.75%!important;width:20.2%!important;height:5.35%!important}
+.hit[data-station="2"]{left:66.2%!important;top:22.7%!important;width:20.8%!important;height:5.45%!important}
+.hit[data-station="3"]{left:36.9%!important;top:39.45%!important;width:20.8%!important;height:5.45%!important}
+.hit[data-station="4"]{left:69.3%!important;top:42.9%!important;width:20.8%!important;height:5.45%!important}
+.hit[data-station="5"]{left:36.9%!important;top:56.5%!important;width:21.0%!important;height:5.45%!important}
+.hit[data-station="6"]{left:71.8%!important;top:61.65%!important;width:21.0%!important;height:5.45%!important}
+.hit[data-action="double"]{left:85%!important;top:10.95%!important;width:13.8%!important;height:9%!important}
+.hit[data-action="truck"]{left:85%!important;top:20.15%!important;width:13.8%!important;height:9%!important}
+.hit[data-action="offline"]{left:85%!important;top:29.35%!important;width:13.8%!important;height:9%!important}
+.hit[data-action="factory"]{left:64.7%!important;top:79.55%!important;width:34.5%!important;height:10.85%!important}
+.hit[data-nav]{top:90.4%!important;height:9.6%!important}
