@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>Recycle Rush: Idle Factory</title>
-<link rel="stylesheet" href="./styles.css?v=20260806-1445">
-<link rel="stylesheet" href="./layout-fix.css?v=20260806-1445">
+<link rel="stylesheet" href="./styles.css?v=20260806-1455">
+<link rel="stylesheet" href="./layout-fix.css?v=20260806-1455">
 </head>
 <body>
 <div id="stage">
@@ -42,15 +42,15 @@
  <button class="hit" data-nav="收集" style="left:59.299%;top:90.730%;width:19.341%;height:9.091%" aria-label="收集"></button>
  <button class="hit" data-nav="商店" style="left:78.640%;top:90.730%;width:19.235%;height:9.091%" aria-label="商店"></button>
 
- <div id="tutorial">点击画面中的蓝色设备牌查看详情；所有动态数值与升级操作都在底部面板中完成。<button class="btn green">开始经营</button></div>
+ <div id="tutorial">点击画面中的蓝色设备牌查看详情；桌面端已启用放大可读模式，所有动态数值与升级操作都在底部面板中完成。<button class="btn green">开始经营</button></div>
  <div id="toast"></div>
  <div id="shade"></div>
  <section id="sheet"><header class="sheet-head"><h2 id="sheetTitle"></h2><button id="closeSheet" aria-label="关闭">×</button></header><div id="sheetBody"></div></section>
 </div>
-<script src="./app.js?v=20260806-1445"></script>
+<script src="./app.js?v=20260806-1455"></script>
 <script>
 (async()=>{
- const version='20260806-1445';
+ const version='20260806-1455';
  const files=['ui-img-0.txt','ui-img-1p0.txt','ui-img-1p1.txt','ui-img-1p2.txt','ui-img-1p3.txt','ui-img-1p4.txt','ui-img-1b.txt','ui-img-1c.txt','ui-img-1d.txt','ui-img-2.txt','ui-img-3.txt','ui-img-4.txt','ui-img-5.txt','ui-img-6.txt','ui-img-7.txt'];
  const parts=await Promise.all(files.map(n=>fetch(`./payload/${n}?v=${version}`,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`加载失败: ${n}`);return r.text();})));
  const art=document.getElementById('art');
