@@ -1,12 +1,54 @@
-/* Final readability overrides. */
+/* Final readability overrides: keep the whole game visible, but make every
+ * interactive information block larger and render it as crisp HTML. */
 
-/* Rebuild the three painted reward buttons as crisp HTML cards. */
+/* Full-screen desktop presentation; no page scrolling is required to reach nav. */
+@media (min-width:900px){
+  html,body{width:100%;height:100%;overflow:hidden!important}
+  body{display:grid!important;place-items:center!important;padding:0!important}
+  #stage{
+    width:min(100vw,56.25vh)!important;
+    height:min(100vh,177.7778vw)!important;
+    max-width:900px!important;
+    max-height:1600px!important;
+  }
+}
+
+/* Slightly larger top numbers while retaining the original HUD footprint. */
+.hud-live{font-size:clamp(14px,2.9cqw,22px)!important}
+#coinsLive,#rateLive,#gemsLive{top:.35%!important;height:5.05%!important}
+#factoryLevelLive{font-size:clamp(11px,2cqw,16px)!important}
+#ecoLive{font-size:clamp(11px,1.9cqw,15px)!important}
+
+/* Larger task panel: it deliberately occupies more of the scene on small
+ * desktop renders so the four objectives remain readable. */
+#taskLive{
+  left:.8%!important;
+  top:10.8%!important;
+  width:27.2%!important;
+  height:23.3%!important;
+}
+#taskLiveTitle{font-size:clamp(14px,2.7cqw,20px)!important}
+.task-live-row{font-size:clamp(10px,1.85cqw,14px)!important}
+.task-icon{font-size:clamp(16px,2.8cqw,22px)!important}
+.task-copy small{font-size:.9em!important}
+.task-reward{font-size:.78em!important}
+
+/* Enlarge station labels and center them over the original blue placards. */
+.station-live{font-size:clamp(11px,2.0cqw,16px)!important}
+#stationLive1{left:43.0%!important;top:21.75%!important;width:20.2%!important;height:5.35%!important}
+#stationLive2{left:66.2%!important;top:22.7%!important;width:20.8%!important;height:5.45%!important}
+#stationLive3{left:36.9%!important;top:39.45%!important;width:20.8%!important;height:5.45%!important}
+#stationLive4{left:69.3%!important;top:42.9%!important;width:20.8%!important;height:5.45%!important}
+#stationLive5{left:36.9%!important;top:56.5%!important;width:21.0%!important;height:5.45%!important}
+#stationLive6{left:71.8%!important;top:61.65%!important;width:21.0%!important;height:5.45%!important}
+
+/* Rebuild the three reward buttons as larger crisp cards. */
 .boost-timer{
   display:flex!important;
-  right:2.3%!important;
-  width:11.4%!important;
-  height:8.15%!important;
-  padding:8% 3% 4%!important;
+  right:1.2%!important;
+  width:13.8%!important;
+  height:9.0%!important;
+  padding:9% 3% 4%!important;
   flex-direction:column;
   align-items:center;
   justify-content:flex-end;
@@ -15,66 +57,51 @@
   border-radius:12px!important;
   color:#fff!important;
   text-align:center!important;
-  font-size:clamp(8px,1.18cqw,11px)!important;
+  font-size:clamp(9px,1.45cqw,12px)!important;
   line-height:1.05!important;
   text-shadow:0 1px 2px #000!important;
   box-shadow:0 4px 9px #0008,inset 0 1px #ffffff66!important;
   overflow:hidden;
 }
 .boost-timer::before{
-  position:absolute;
-  left:0;right:0;top:8%;
-  font-size:clamp(10px,1.65cqw,15px);
-  font-weight:1000;
-  line-height:1.05;
-  white-space:pre-line;
+  position:absolute;left:0;right:0;top:8%;
+  font-size:clamp(12px,2.0cqw,16px);
+  font-weight:1000;line-height:1.05;white-space:pre-line;
 }
 .boost-timer::after{
-  content:'▶ 自愿';
-  display:block;
-  width:86%;
-  padding:.22em 0;
-  margin-top:.16em;
-  border-radius:5px;
-  background:#102634aa;
-  font-size:.82em;
+  content:'▶ 自愿';display:block;width:86%;padding:.22em 0;margin-top:.16em;
+  border-radius:5px;background:#102634aa;font-size:.82em;
 }
-#doubleTimer{
-  top:11.58%!important;
-  background:linear-gradient(180deg,#b456f5,#6620b5)!important;
-}
+#doubleTimer{top:10.95%!important;background:linear-gradient(180deg,#b456f5,#6620b5)!important}
 #doubleTimer::before{content:'×2\A双倍收益'}
-#truckTimer{
-  top:20.18%!important;
-  background:linear-gradient(180deg,#53c7ff,#167bbf)!important;
-}
+#truckTimer{top:20.15%!important;background:linear-gradient(180deg,#53c7ff,#167bbf)!important}
 #truckTimer::before{content:'🚚\A快速运输'}
-#offlineTimer{
-  top:28.78%!important;
-  background:linear-gradient(180deg,#ffc94c,#e68a16)!important;
-  color:#3f2b00!important;
-  text-shadow:0 1px #fff5a6!important;
-}
+#offlineTimer{top:29.35%!important;background:linear-gradient(180deg,#ffc94c,#e68a16)!important;color:#3f2b00!important;text-shadow:0 1px #fff5a6!important}
 #offlineTimer::before{content:'🪙\A离线收益'}
 #offlineTimer::after{color:#fff;text-shadow:0 1px #000}
-
-/* The runtime text becomes a compact status line below the title. */
 .boost-timer:not(.on){font-size:0!important}
-.boost-timer:not(.on)::after{font-size:clamp(7px,1.0cqw,10px)!important}
+.boost-timer:not(.on)::after{font-size:clamp(8px,1.25cqw,11px)!important}
 
-/* Align the live navigation and the interaction grid exactly. */
-#navBarLive{left:0!important;right:0!important;border-radius:12px 12px 0 0!important}
-.nav-active{width:20%!important}
+/* More vertical room for product details and navigation labels. */
+#productLive{left:.8%!important;top:79.55%!important;width:63.2%!important;height:10.85%!important}
+#productLiveTitle{font-size:clamp(12px,2.0cqw,16px)!important}
+.product-live-item{font-size:clamp(9px,1.55cqw,12px)!important}
+.product-live-item>span{font-size:clamp(22px,4.4cqw,34px)!important}
+#factoryUpgradeLive{left:64.7%!important;top:79.55%!important;width:34.5%!important;height:10.85%!important;font-size:clamp(14px,2.6cqw,20px)!important}
 
-/* Give the task copy more room and make the important numbers heavier. */
-#taskLive{width:23.1%!important}
-.task-copy b{letter-spacing:.01em}
-.task-copy small{font-size:.88em!important}
+#navBarLive{left:0!important;right:0!important;top:90.4%!important;height:9.6%!important;border-radius:12px 12px 0 0!important}
+.nav-live-item{font-size:clamp(12px,2.0cqw,16px)!important}
+.nav-live-item span{font-size:clamp(25px,4.8cqw,38px)!important}
+.nav-active{top:90.4%!important;height:9.6%!important;width:20%!important}
 
-/* Desktop-first presentation: readable instead of forced to fit one short screen. */
+/* Larger interaction sheets remain readable even at fit-to-height desktop size. */
 @media (min-width:900px){
-  #stage{width:min(780px,94vw)!important}
-}
-@media (min-width:900px) and (max-height:760px){
-  #stage{width:min(700px,92vw)!important}
+  #sheet{left:1.1%!important;right:1.1%!important;max-height:89%!important}
+  .sheet-head{height:64px!important;padding:0 18px!important}
+  .sheet-head h2{font-size:27px!important}
+  #closeSheet{width:46px!important;height:46px!important;font-size:28px!important}
+  #sheetBody{max-height:calc(89vh - 64px)!important;padding:16px 16px 26px!important;font-size:17px!important}
+  .card{padding:14px!important;margin-bottom:12px!important}
+  .card h3{font-size:22px!important}
+  .btn{min-height:49px!important;padding:12px 15px!important;font-size:17px!important}
 }
