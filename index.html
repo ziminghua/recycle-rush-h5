@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>Recycle Rush: Idle Factory</title>
-<link rel="stylesheet" href="./styles.css?v=20260806-1510">
-<link rel="stylesheet" href="./layout-fix.css?v=20260806-1510">
+<link rel="stylesheet" href="./styles.css?v=20260806-1525">
+<link rel="stylesheet" href="./layout-fix.css?v=20260806-1525">
+<link rel="stylesheet" href="./layout-polish.css?v=20260806-1525">
 </head>
 <body>
 <div id="stage">
@@ -35,7 +36,7 @@
 
  <!-- Hit rectangles measured against the 941 × 1672 source artwork. -->
  <button class="hit" data-action="menu" style="left:90.223%;top:.478%;width:6.908%;height:5.203%" aria-label="设置"></button>
- <button class="hit" data-action="tasks" style="left:1.063%;top:11.603%;width:21.254%;height:20.096%" aria-label="任务"></button>
+ <button class="hit" data-action="tasks" style="left:.9%;top:11.35%;width:23.1%;height:20.75%" aria-label="任务"></button>
 
  <button class="hit" data-station="1" style="left:44.633%;top:22.309%;width:17.003%;height:4.306%" aria-label="分类台"></button>
  <button class="hit" data-station="2" style="left:68.013%;top:23.266%;width:17.216%;height:4.486%" aria-label="塑料破碎机"></button>
@@ -60,11 +61,11 @@
  <div id="shade"></div>
  <section id="sheet"><header class="sheet-head"><h2 id="sheetTitle"></h2><button id="closeSheet" aria-label="关闭">×</button></header><div id="sheetBody"></div></section>
 </div>
-<script src="./app.js?v=20260806-1510"></script>
-<script src="./ui-live.js?v=20260806-1510"></script>
+<script src="./app.js?v=20260806-1525"></script>
+<script src="./ui-live.js?v=20260806-1525"></script>
 <script>
 (async()=>{
- const version='20260806-1510';
+ const version='20260806-1525';
  const files=['ui-img-0.txt','ui-img-1p0.txt','ui-img-1p1.txt','ui-img-1p2.txt','ui-img-1p3.txt','ui-img-1p4.txt','ui-img-1b.txt','ui-img-1c.txt','ui-img-1d.txt','ui-img-2.txt','ui-img-3.txt','ui-img-4.txt','ui-img-5.txt','ui-img-6.txt','ui-img-7.txt'];
  const parts=await Promise.all(files.map(n=>fetch(`./payload/${n}?v=${version}`,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`加载失败: ${n}`);return r.text();})));
  const art=document.getElementById('art');
