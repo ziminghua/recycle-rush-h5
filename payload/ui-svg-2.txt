@@ -1,0 +1,66 @@
+427" y="1033" text-anchor="middle" font-size="27" font-weight="800" fill="#fff">Lv.20</text><rect x="471" y="984" width="34" height="43" rx="8" fill="url(#greenBtn)" stroke="#efffc7" stroke-width="3"/><text x="488" y="1016" text-anchor="middle" font-size="28" font-weight="900" fill="#fff">↑</text></g>
+<g class="station-card" id="station6"><rect x="646" y="1015" width="170" height="86" rx="18" fill="url(#blueBtn)" stroke="#d9f4ff" stroke-width="6"/><text x="731" y="1054" text-anchor="middle" font-size="31" font-weight="900" fill="#fff">6 装车区</text><text id="level6" x="731" y="1088" text-anchor="middle" font-size="27" font-weight="800" fill="#fff">Lv.22</text><rect x="771" y="1039" width="35" height="43" rx="8" fill="url(#greenBtn)" stroke="#efffc7" stroke-width="3"/><text x="789" y="1071" text-anchor="middle" font-size="28" font-weight="900" fill="#fff">↑</text></g>
+
+<!-- top HUD -->
+<rect x="0" y="0" width="900" height="102" fill="url(#hud)"/>
+<g filter="url(#shadow)">
+  <rect x="10" y="7" width="128" height="111" rx="26" fill="#45a9db" stroke="#d5effa" stroke-width="5"/>
+  <!-- raccoon mascot -->
+  <g transform="translate(74 58)">
+    <path d="M-43-35l-18-16 5 31M43-35l18-16-5 31" fill="#6f7479" stroke="#3e454b" stroke-width="5"/>
+    <ellipse rx="48" ry="42" fill="#aeb4b6" stroke="#667075" stroke-width="5"/>
+    <ellipse cx="-19" cy="-2" rx="17" ry="22" fill="#303438" transform="rotate(18 -19 -2)"/><ellipse cx="19" cy="-2" rx="17" ry="22" fill="#303438" transform="rotate(-18 19 -2)"/>
+    <circle cx="-16" cy="-2" r="6" fill="#fff"/><circle cx="16" cy="-2" r="6" fill="#fff"/><circle cx="-15" cy="-1" r="3" fill="#111"/><circle cx="15" cy="-1" r="3" fill="#111"/>
+    <ellipse cy="14" rx="25" ry="19" fill="#f4f0e7"/><circle cy="8" r="6" fill="#202326"/><path d="M-13 19q13 13 26 0" fill="none" stroke="#302b28" stroke-width="4" stroke-linecap="round"/>
+    <path d="M-42-26q42-42 84 0v9h-84z" fill="#f4b529" stroke="#a96e11" stroke-width="5"/><rect x="-24" y="-41" width="48" height="14" rx="6" fill="#ffd55c"/>
+  </g>
+  <path d="M13 93h87l24 24H17z" fill="#10202c" stroke="#8ec1d9" stroke-width="4"/>
+  <rect x="15" y="88" width="44" height="47" rx="12" fill="#146d35" stroke="#ffda54" stroke-width="5"/>
+  <text x="37" y="121" text-anchor="middle" fill="#fff" font-size="27" font-weight="900">8</text>
+  <rect x="144" y="8" width="232" height="84" rx="24" fill="url(#hudCard)" stroke="#415866" stroke-width="4"/>
+  <circle cx="181" cy="50" r="28" fill="#f7ae1b" stroke="#ffd567" stroke-width="5"/><text x="181" y="60" text-anchor="middle" font-size="28" font-weight="900" fill="#fff">$</text>
+  <text id="coins" x="276" y="63" text-anchor="middle" fill="#fff" font-size="39" font-weight="950">125.6M</text>
+  <circle cx="348" cy="49" r="21" fill="#3cad38"/><text x="348" y="59" text-anchor="middle" fill="#fff" font-size="31" font-weight="900">+</text>
+  <rect x="385" y="8" width="270" height="84" rx="24" fill="url(#hudCard)" stroke="#415866" stroke-width="4"/>
+  <text x="520" y="54" text-anchor="middle" fill="#50e45f" font-size="36" font-weight="950">+12.45M/s</text><text x="520" y="78" text-anchor="middle" fill="#fff" font-size="20" font-weight="800">利润 / 秒</text>
+  <rect x="664" y="8" width="160" height="84" rx="24" fill="url(#hudCard)" stroke="#415866" stroke-width="4"/>
+  <path d="M701 27l24 0 14 22-26 28-26-28z" fill="#75d126" stroke="#a8f06e" stroke-width="4"/>
+  <text x="775" y="62" text-anchor="middle" fill="#fff" font-size="35" font-weight="950">1,248</text>
+  <rect x="832" y="8" width="60" height="84" rx="22" fill="url(#hudCard)" stroke="#415866" stroke-width="4"/>
+  <path d="M849 31h27M849 50h27M849 69h27" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="879" cy="14" r="10" fill="#ff5252"/>
+</g>
+
+<!-- progress cards -->
+<g filter="url(#shadow)">
+  <rect x="178" y="108" width="506" height="72" rx="24" fill="url(#cream)" stroke="#9f875e" stroke-width="4"/>
+  <g transform="translate(215 142)"><path d="M0 0c-8-23 13-37 35-31 2 24-8 39-35 31z" fill="#6bc52c" stroke="#388a1a" stroke-width="3"/><path d="M4 1l24-25" stroke="#3d8e1e" stroke-width="3"/></g>
+  <text x="267" y="135" fill="#5d5344" font-size="22" font-weight="800">环保等级</text><text x="267" y="165" fill="#25313a" font-size="28" font-weight="900">Lv.3 绿色工厂</text>
+  <g transform="translate(430 142)"><g fill="#75c82d" stroke="#3d8c1f" stroke-width="2"><ellipse cx="0" cy="0" rx="20" ry="12" transform="rotate(-25)"/><ellipse cx="48" cy="0" rx="20" ry="12" transform="rotate(-25 48 0)"/><ellipse cx="96" cy="0" rx="20" ry="12" transform="rotate(-25 96 0)"/><ellipse cx="144" cy="0" rx="20" ry="12" transform="rotate(-25 144 0)"/></g><g fill="#d2c9b3"><ellipse cx="192" cy="0" rx="20" ry="12" transform="rotate(-25 192 0)"/><ellipse cx="240" cy="0" rx="20" ry="12" transform="rotate(-25 240 0)"/></g></g>
+  <rect x="696" y="108" width="194" height="72" rx="24" fill="url(#cream)" stroke="#9f875e" stroke-width="4"/>
+  <circle cx="735" cy="144" r="27" fill="#3196d6"/><path d="M718 139q16-21 35-6l8 13q-19 18-38 3z" fill="#63b94d"/>
+  <text x="780" y="135" fill="#5d5344" font-size="20" font-weight="800">生态贡献</text><text x="780" y="165" fill="#25313a" font-size="29" font-weight="900">12.6K</text>
+</g>
+
+<!-- task panel -->
+<g transform="translate(8 192)" filter="url(#shadow)">
+  <rect width="195" height="338" rx="20" fill="url(#cream)" stroke="#9b825c" stroke-width="5"/>
+  <path d="M0 20Q0 0 20 0H175Q195 0 195 20V55H0Z" fill="#2eaa31"/>
+  <text x="98" y="41" text-anchor="middle" fill="#fff" font-size="31" font-weight="900">任务</text>
+  <g font-weight="850" fill="#27323a">
+    <g transform="translate(18 82)"><text font-size="30">♻</text><text x="42" y="0" font-size="21">回收塑料</text><text x="42" y="28" font-size="20" fill="#268d35">3.2K / 5K</text><text x="145" y="28" font-size="17">🪙50K</text></g>
+    <path d="M15 137H180" stroke="#c7b58e"/>
+    <g transform="translate(18 160)"><text font-size="28">▤</text><text x="42" y="0" font-size="21">压缩纸张</text><text x="42" y="28" font-size="20" fill="#268d35">1.8K / 2.5K</text><text x="145" y="28" font-size="17">🪙40K</text></g>
+    <path d="M15 215H180" stroke="#c7b58e"/>
+    <g transform="translate(18 238)"><text font-size="28">▣</text><text x="42" y="0" font-size="21">打包再生品</text><text x="42" y="28" font-size="20" fill="#268d35">1.2K / 2K</text><text x="145" y="28" font-size="17">🪙30K</text></g>
+    <path d="M15 293H180" stroke="#c7b58e"/>
+    <g transform="translate(18 318)"><text font-size="28">⌖</text><text x="42" y="0" font-size="21">解锁新区域</text><text x="42" y="27" font-size="20">0 / 1　🏅1</text></g>
+  </g>
+</g>
+
+<!-- upgrade area sign -->
+<g transform="translate(88 820) rotate(-4)" filter="url(#shadow)"><rect width="164" height="72" rx="5" fill="#327641" stroke="#77512c" stroke-width="10"/><text x="82" y="44" text-anchor="middle" fill="#fff" font-size="28" font-weight="900">升级区域</text><path d="M119 55h27l-12 11z" fill="#ffd253"/></g>
+
+<!-- boost buttons -->
+<g transform="translate(800 198)">
+  <g class="boost-card" id="boostDouble"><rect width="92" height="132" rx="20" fill="url(#purpleBtn)" stroke="#fff" stroke-width="5"/><text x="46" y="45" text-anchor="middle" fill="#ffe24f" font-size="45" font-weight="950">×2</text><text x="46" y="76" text-anchor="middle" fill="#fff" font-size="22" font-weight="900">双倍收益</text><rect x="16" y="91" width="60" height="28" rx="8" fill="#32185a" opacity=".72"/><text 
