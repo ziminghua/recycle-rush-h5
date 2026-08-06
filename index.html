@@ -5,22 +5,35 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>Recycle Rush: Idle Factory</title>
-<link rel="stylesheet" href="./styles.css?v=20260806-1455">
-<link rel="stylesheet" href="./layout-fix.css?v=20260806-1455">
+<link rel="stylesheet" href="./styles.css?v=20260806-1510">
+<link rel="stylesheet" href="./layout-fix.css?v=20260806-1510">
 </head>
 <body>
 <div id="stage">
  <img id="art" alt="Recycle Rush 游戏界面">
  <div id="ui">
   <div class="hud-live" id="coinsLive"></div><div class="hud-live" id="rateLive"></div><div class="hud-live" id="gemsLive"></div>
-  <div class="hud-live" id="factoryLevelLive"></div><div class="hud-live" id="ecoLive"></div>
+  <div class="hud-live" id="factoryLevelLive"></div><div class="hud-live" id="ecoLive"><span id="ecoLiveText"></span></div>
+
+  <div id="taskLive"><div id="taskLiveTitle">任务</div><div id="taskLiveBody"></div></div>
+
   <div id="stationLive1" class="station-live"></div><div id="stationLive2" class="station-live"></div><div id="stationLive3" class="station-live"></div><div id="stationLive4" class="station-live"></div><div id="stationLive5" class="station-live"></div><div id="stationLive6" class="station-live"></div>
   <div id="doubleTimer" class="boost-timer"></div><div id="truckTimer" class="boost-timer"></div><div id="offlineTimer" class="boost-timer"></div>
-  <div id="factoryUpgradeLive"></div><div id="missionBadge"></div><div id="navActive" class="nav-active" style="left:0"></div>
+
+  <div id="productLive"><div id="productLiveTitle">再生产品</div><div id="productLiveBody"></div></div>
+  <div id="factoryUpgradeLive"></div>
+  <div id="navBarLive">
+   <div class="nav-live-item"><span>🏭</span>工厂</div>
+   <div class="nav-live-item"><span>👷</span>工人</div>
+   <div class="nav-live-item"><span>🧪</span>研究</div>
+   <div class="nav-live-item"><span>📋</span>收集</div>
+   <div class="nav-live-item"><span>🏪</span>商店</div>
+  </div>
+  <div id="missionBadge"></div><div id="navActive" class="nav-active" style="left:0"></div>
  </div>
  <div id="fx"></div>
 
- <!-- Exact hit rectangles measured against the 941 × 1672 source artwork. -->
+ <!-- Hit rectangles measured against the 941 × 1672 source artwork. -->
  <button class="hit" data-action="menu" style="left:90.223%;top:.478%;width:6.908%;height:5.203%" aria-label="设置"></button>
  <button class="hit" data-action="tasks" style="left:1.063%;top:11.603%;width:21.254%;height:20.096%" aria-label="任务"></button>
 
@@ -34,23 +47,24 @@
  <button class="hit" data-action="double" style="left:85.760%;top:11.603%;width:11.902%;height:8.373%" aria-label="双倍收益"></button>
  <button class="hit" data-action="truck" style="left:85.760%;top:20.215%;width:11.902%;height:8.433%" aria-label="快速运输"></button>
  <button class="hit" data-action="offline" style="left:85.760%;top:28.828%;width:11.902%;height:8.433%" aria-label="离线收益"></button>
- <button class="hit" data-action="factory" style="left:66.100%;top:85.227%;width:29.756%;height:4.486%" aria-label="工厂升级"></button>
+ <button class="hit" data-action="factory" style="left:64.8%;top:81.05%;width:33.2%;height:9.25%" aria-label="工厂升级"></button>
 
- <button class="hit" data-nav="工厂" style="left:1.488%;top:90.730%;width:18.916%;height:9.091%" aria-label="工厂"></button>
- <button class="hit" data-nav="工人" style="left:20.404%;top:90.730%;width:19.341%;height:9.091%" aria-label="工人"></button>
- <button class="hit" data-nav="研究" style="left:39.745%;top:90.730%;width:19.554%;height:9.091%" aria-label="研究"></button>
- <button class="hit" data-nav="收集" style="left:59.299%;top:90.730%;width:19.341%;height:9.091%" aria-label="收集"></button>
- <button class="hit" data-nav="商店" style="left:78.640%;top:90.730%;width:19.235%;height:9.091%" aria-label="商店"></button>
+ <button class="hit" data-nav="工厂" style="left:0;top:90.6%;width:20%;height:9.4%" aria-label="工厂"></button>
+ <button class="hit" data-nav="工人" style="left:20%;top:90.6%;width:20%;height:9.4%" aria-label="工人"></button>
+ <button class="hit" data-nav="研究" style="left:40%;top:90.6%;width:20%;height:9.4%" aria-label="研究"></button>
+ <button class="hit" data-nav="收集" style="left:60%;top:90.6%;width:20%;height:9.4%" aria-label="收集"></button>
+ <button class="hit" data-nav="商店" style="left:80%;top:90.6%;width:20%;height:9.4%" aria-label="商店"></button>
 
- <div id="tutorial">点击画面中的蓝色设备牌查看详情；桌面端已启用放大可读模式，所有动态数值与升级操作都在底部面板中完成。<button class="btn green">开始经营</button></div>
+ <div id="tutorial">点击设备牌查看详情；界面文字已改为浏览器实时绘制，在桌面和移动端都会保持清晰。<button class="btn green">开始经营</button></div>
  <div id="toast"></div>
  <div id="shade"></div>
  <section id="sheet"><header class="sheet-head"><h2 id="sheetTitle"></h2><button id="closeSheet" aria-label="关闭">×</button></header><div id="sheetBody"></div></section>
 </div>
-<script src="./app.js?v=20260806-1455"></script>
+<script src="./app.js?v=20260806-1510"></script>
+<script src="./ui-live.js?v=20260806-1510"></script>
 <script>
 (async()=>{
- const version='20260806-1455';
+ const version='20260806-1510';
  const files=['ui-img-0.txt','ui-img-1p0.txt','ui-img-1p1.txt','ui-img-1p2.txt','ui-img-1p3.txt','ui-img-1p4.txt','ui-img-1b.txt','ui-img-1c.txt','ui-img-1d.txt','ui-img-2.txt','ui-img-3.txt','ui-img-4.txt','ui-img-5.txt','ui-img-6.txt','ui-img-7.txt'];
  const parts=await Promise.all(files.map(n=>fetch(`./payload/${n}?v=${version}`,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`加载失败: ${n}`);return r.text();})));
  const art=document.getElementById('art');
@@ -58,6 +72,7 @@
  if(art.naturalWidth!==540||art.naturalHeight!==960)throw new Error(`图片尺寸异常: ${art.naturalWidth}×${art.naturalHeight}`);
  if(!window.RecycleRush)throw new Error('游戏逻辑加载失败');
  window.RecycleRush.boot();
+ window.RecycleRushUI?.start();
 })().catch(err=>{document.body.innerHTML=`<pre style="color:white;padding:20px;white-space:pre-wrap">${err.stack||err}</pre>`;});
 </script>
 </body>
