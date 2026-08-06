@@ -1,0 +1,64 @@
+/*
+ * The concept artwork already contains station labels, task details,
+ * boost labels and the bottom navigation. Do not draw a second copy on top.
+ * Dynamic values are limited to the three top resource windows; all detailed
+ * live data is presented in the interactive bottom sheet.
+ */
+.station-live,
+#factoryLevelLive,
+#ecoLive,
+.boost-timer,
+#factoryUpgradeLive,
+#missionBadge,
+.nav-active{
+  display:none!important;
+}
+
+/* Persistent upgrade outlines were visually fighting the painted machinery. */
+.hit.affordable::after{display:none!important}
+
+/* Keep the live economy, but fully replace—not overlap—the painted numbers. */
+#coinsLive,
+#rateLive,
+#gemsLive{
+  top:.35%;
+  height:4.35%;
+  background:linear-gradient(180deg,#263b49 0%,#152632 100%);
+  border:1px solid #58707e;
+  border-radius:8px;
+  box-shadow:inset 0 1px 0 #ffffff26,0 1px 3px #0007;
+  line-height:1;
+  white-space:nowrap;
+  overflow:hidden;
+}
+#coinsLive{left:17.1%;width:22.7%}
+#rateLive{left:42.1%;width:28.5%}
+#gemsLive{left:76.1%;width:15.6%}
+
+/* Map controls are invisible until pressed; feedback is a short warm flash. */
+.hit[data-station]{
+  border-radius:22%;
+  transition:background .08s ease,filter .08s ease;
+}
+.hit[data-station]:active{
+  transform:none;
+  background:radial-gradient(circle at 50% 55%,#ffe16b66 0%,#ffc83d2e 43%,transparent 72%);
+  filter:brightness(1.1);
+}
+
+/* Side controls already have painted button faces. */
+.hit[data-action="double"]:active,
+.hit[data-action="truck"]:active,
+.hit[data-action="offline"]:active,
+.hit[data-action="factory"]:active,
+.hit[data-nav]:active{
+  transform:none;
+  background:#ffffff22;
+}
+
+/* Prevent effect labels from covering station names. */
+.level-pop,.coin-fx{font-size:clamp(12px,1.9vw,18px)}
+
+@media(max-width:520px){
+  #coinsLive,#rateLive,#gemsLive{border-radius:6px}
+}
