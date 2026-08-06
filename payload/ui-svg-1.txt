@@ -1,0 +1,64 @@
+translate(198 45)"><circle r="15" fill="#f4bb82"/><path d="M-18 -6q18-20 36 0v8h-36z" fill="#3caa4c"/><rect x="-12" y="13" width="24" height="34" rx="8" fill="#2d7e38"/></g>
+  <g class="worker" transform="translate(266 45)"><circle r="15" fill="#e9a56b"/><path d="M-18 -6q18-20 36 0v8h-36z" fill="#3caa4c"/><rect x="-12" y="13" width="24" height="34" rx="8" fill="#2d7e38"/></g>
+  <g transform="translate(40 168)"><rect width="60" height="55" rx="5" fill="#3ea65a"/><text x="30" y="40" text-anchor="middle" font-size="28" fill="#fff">♻</text><rect x="74" width="60" height="55" rx="5" fill="#2378bd"/><text x="104" y="40" text-anchor="middle" font-size="28" fill="#fff">♻</text><rect x="148" width="60" height="55" rx="5" fill="#d7a322"/><text x="178" y="40" text-anchor="middle" font-size="28" fill="#fff">♻</text><rect x="222" width="60" height="55" rx="5" fill="#3ca457"/><text x="252" y="40" text-anchor="middle" font-size="28" fill="#fff">♻</text></g>
+</g>
+
+<!-- plastic crusher -->
+<g transform="translate(600 420)" filter="url(#shadow)">
+  <rect x="0" y="0" width="165" height="210" rx="22" fill="url(#blueMachine)" stroke="#0a4668" stroke-width="9"/>
+  <path d="M20 30H145V100L126 119H39L20 97Z" fill="#9de6f5" opacity=".35"/>
+  <path d="M20 132H145L126 197H36Z" fill="#e5f3f4" opacity=".9"/>
+  <path d="M41 146l82 30M56 137l67 38M31 161l70 24" stroke="#7fa4aa" stroke-width="7"/>
+  <text x="83" y="88" text-anchor="middle" font-size="60" font-weight="900" fill="#fff">♻</text>
+</g>
+
+<!-- paper compactor -->
+<g transform="translate(330 720)" filter="url(#shadow)">
+  <rect x="0" y="0" width="220" height="205" rx="20" fill="url(#greenMachine)" stroke="#225d2d" stroke-width="9"/>
+  <rect x="24" y="34" width="170" height="92" rx="12" fill="#204b2d" stroke="#9adc7b" stroke-width="5"/>
+  <g transform="translate(20 140)"><rect x="0" y="0" width="120" height="47" fill="#eee9d6" stroke="#9d9274" stroke-width="4"/><path d="M20 12h75M20 23h82M20 34h65" stroke="#b8aa8d" stroke-width="4"/></g>
+  <rect x="140" y="145" width="60" height="32" rx="6" fill="#6ec146"/>
+  <text x="110" y="103" text-anchor="middle" font-size="46" fill="#8bd66b">♻</text>
+</g>
+
+<!-- packaging station -->
+<g transform="translate(590 715)" filter="url(#shadow)">
+  <rect x="0" y="0" width="180" height="210" rx="20" fill="url(#orangeMachine)" stroke="#8c4c10" stroke-width="9"/>
+  <rect x="25" y="32" width="130" height="72" rx="12" fill="#e7f1f0" stroke="#806745" stroke-width="5"/>
+  <rect x="43" y="42" width="94" height="52" rx="8" fill="#f4f7f2"/>
+  <path d="M0 150H200" stroke="#263b46" stroke-width="34"/>
+  <path class="belt-line" d="M2 150H198" stroke="#80949d" stroke-width="20" stroke-dasharray="18 15"/>
+  <g transform="translate(55 131)"><rect width="55" height="45" fill="#c98735" stroke="#734719" stroke-width="4"/><path d="M27 0v45M0 15h55" stroke="#efbd76" stroke-width="3"/></g>
+</g>
+
+<!-- warehouse -->
+<g transform="translate(292 1018)" filter="url(#shadow)">
+  <path d="M0 70L35 0H300L335 70V255H0Z" fill="#dfe7e5" stroke="#4c626c" stroke-width="9"/>
+  <path d="M35 0H300V64H0Z" fill="#2f9ed5"/>
+  <rect x="30" y="83" width="94" height="145" fill="#a7bac0" stroke="#40535d" stroke-width="6"/>
+  <text x="77" y="155" text-anchor="middle" font-size="58" fill="#288e43">♻</text>
+  <rect x="142" y="78" width="166" height="156" fill="url(#boxes)" stroke="#485d67" stroke-width="6"/>
+  <g transform="translate(112 192)"><rect x="0" y="20" width="72" height="36" rx="5" fill="#e5a72d"/><rect x="45" y="2" width="38" height="33" rx="5" fill="#f3b835"/><circle cx="15" cy="61" r="13" fill="#1d252a"/><circle cx="67" cy="61" r="13" fill="#1d252a"/></g>
+</g>
+
+<!-- loading truck -->
+<g transform="translate(620 1080)" filter="url(#shadow)">
+  <rect x="0" y="0" width="170" height="140" rx="8" fill="#eef2f1" stroke="#44545b" stroke-width="8"/>
+  <rect x="25" y="38" width="120" height="60" rx="5" fill="#268a43"/>
+  <text x="85" y="75" text-anchor="middle" fill="#fff" font-size="24" font-weight="900">♻ RECYCLING</text>
+  <path d="M170 45H225L250 78V140H170Z" fill="#dce5e6" stroke="#44545b" stroke-width="8"/>
+  <rect x="190" y="62" width="33" height="28" fill="#9bd3e2"/>
+  <circle cx="45" cy="146" r="20" fill="#182126" stroke="#68757c" stroke-width="7"/><circle cx="203" cy="146" r="20" fill="#182126" stroke="#68757c" stroke-width="7"/>
+  <g transform="translate(-65 104)"><rect width="58" height="46" fill="#c98735" stroke="#734719" stroke-width="4"/><path d="M29 0v46M0 16h58" stroke="#efbd76" stroke-width="3"/></g>
+</g>
+
+<!-- small trees and landscaping -->
+<g fill="#3f873f" stroke="#2b6232" stroke-width="5"><circle cx="248" cy="1008" r="33"/><circle cx="282" cy="1230" r="31"/><circle cx="770" cy="970" r="26"/></g>
+<g fill="#74b55a"><circle cx="239" cy="996" r="17"/><circle cx="276" cy="1218" r="16"/><circle cx="764" cy="958" r="14"/></g>
+
+<!-- station labels -->
+<g class="station-card" id="station1"><rect x="410" y="375" width="190" height="86" rx="18" fill="url(#blueBtn)" stroke="#d9f4ff" stroke-width="6"/><text x="505" y="414" text-anchor="middle" font-size="32" font-weight="900" fill="#fff">1 分类台</text><text id="level1" x="505" y="447" text-anchor="middle" font-size="27" font-weight="800" fill="#fff">Lv.25</text><rect x="552" y="399" width="37" height="45" rx="8" fill="url(#greenBtn)" stroke="#efffc7" stroke-width="3"/><text x="571" y="432" text-anchor="middle" font-size="30" font-weight="900" fill="#fff">↑</text></g>
+<g class="station-card" id="station2"><rect x="620" y="390" width="178" height="86" rx="18" fill="url(#blueBtn)" stroke="#d9f4ff" stroke-width="6"/><text x="709" y="429" text-anchor="middle" font-size="29" font-weight="900" fill="#fff">2 塑料破碎机</text><text id="level2" x="709" y="461" text-anchor="middle" font-size="26" font-weight="800" fill="#fff">Lv.30</text><rect x="753" y="414" width="35" height="43" rx="8" fill="url(#greenBtn)" stroke="#efffc7" stroke-width="3"/><text x="771" y="446" text-anchor="middle" font-size="28" font-weight="900" fill="#fff">↑</text></g>
+<g class="station-card" id="station3"><rect x="348" y="665" width="190" height="86" rx="18" fill="url(#blueBtn)" stroke="#d9f4ff" stroke-width="6"/><text x="443" y="704" text-anchor="middle" font-size="30" font-weight="900" fill="#fff">3 纸张压缩机</text><text id="level3" x="443" y="738" text-anchor="middle" font-size="27" font-weight="800" fill="#fff">Lv.28</text><rect x="493" y="689" width="35" height="43" rx="8" fill="url(#greenBtn)" stroke="#efffc7" stroke-width="3"/><text x="511" y="721" text-anchor="middle" font-size="28" font-weight="900" fill="#fff">↑</text></g>
+<g class="station-card" id="station4"><rect x="630" y="675" width="174" height="86" rx="18" fill="url(#blueBtn)" stroke="#d9f4ff" stroke-width="6"/><text x="717" y="714" text-anchor="middle" font-size="31" font-weight="900" fill="#fff">4 包装站</text><text id="level4" x="717" y="748" text-anchor="middle" font-size="27" font-weight="800" fill="#fff">Lv.26</text><rect x="759" y="699" width="35" height="43" rx="8" fill="url(#greenBtn)" stroke="#efffc7" stroke-width="3"/><text x="777" y="731" text-anchor="middle" font-size="28" font-weight="900" fill="#fff">↑</text></g>
+<g class="station-card" id="station5"><rect x="340" y="960" width="175" height="86" rx="18" fill="url(#blueBtn)" stroke="#d9f4ff" stroke-width="6"/><text x="427" y="999" text-anchor="middle" font-size="31" font-weight="900" fill="#fff">5 仓库</text><text id="level5" x="
