@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>Recycle Rush: Idle Factory</title>
-<link rel="stylesheet" href="./styles.css?v=20260806-1146">
+<link rel="stylesheet" href="./styles.css?v=20260806-1205">
 </head>
 <body>
 <div id="stage">
@@ -40,10 +40,10 @@
  <div id="shade"></div>
  <section id="sheet"><header class="sheet-head"><h2 id="sheetTitle"></h2><button id="closeSheet" aria-label="关闭">×</button></header><div id="sheetBody"></div></section>
 </div>
-<script src="./app.js?v=20260806-1146"></script>
+<script src="./app.js?v=20260806-1205"></script>
 <script>
 (async()=>{
- const version='20260806-1146';
+ const version='20260806-1205';
  const files=['ui-img-0.txt','ui-img-1p0.txt','ui-img-1p1.txt','ui-img-1p2.txt','ui-img-1p3.txt','ui-img-1p4.txt','ui-img-1b.txt','ui-img-1c.txt','ui-img-1d.txt','ui-img-2.txt','ui-img-3.txt','ui-img-4.txt','ui-img-5.txt','ui-img-6.txt','ui-img-7.txt'];
  const parts=await Promise.all(files.map(n=>fetch(`./payload/${n}?v=${version}`,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`加载失败: ${n}`);return r.text();})));
  const art=document.getElementById('art');
