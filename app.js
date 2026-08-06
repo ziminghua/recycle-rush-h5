@@ -65,15 +65,16 @@ function load(){
    const raw=localStorage.getItem(SAVE_KEY);
    if(raw){
      const saved=JSON.parse(raw);
-     state={...defaults(),...saved};
-     state.stations=[...defaults().stations,...(saved.stations||[])].slice(0,6);
-     state.workers=[...defaults().workers,...(saved.workers||[])].slice(0,6);
-     state.research=[...defaults().research,...(saved.research||[])].slice(0,6);
-     state.boosts={...defaults().boosts,...(saved.boosts||{})};
-     state.collections={...defaults().collections,...(saved.collections||{})};
-     state.collectionClaims={...defaults().collectionClaims,...(saved.collectionClaims||{})};
-     state.tasks={...defaults().tasks,...(saved.tasks||{})};
-     state.taskClaims={...defaults().taskClaims,...(saved.taskClaims||{})};
+     const base=defaults();
+     state={...base,...saved};
+     state.stations=Array.from({length:6},(_,i)=>Number(saved.stations?.[i] ?? base.stations[i]));
+     state.workers=Array.from({length:6},(_,i)=>Number(saved.workers?.[i] ?? base.workers[i]));
+     state.research=Array.from({length:6},(_,i)=>Number(saved.research?.[i] ?? base.research[i]));
+     state.boosts={...base.boosts,...(saved.boosts||{})};
+     state.collections={...base.collections,...(saved.collections||{})};
+     state.collectionClaims={...base.collectionClaims,...(saved.collectionClaims||{})};
+     state.tasks={...base.tasks,...(saved.tasks||{})};
+     state.taskClaims={...base.taskClaims,...(saved.taskClaims||{})};
    }
  }catch(e){ console.warn('save load failed',e); }
  const now=Date.now();
