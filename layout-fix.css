@@ -1,28 +1,28 @@
 /*
- * The concept artwork is a complete composed screen: HUD, station labels,
- * task panel, boosts, factory panel and bottom navigation are already painted.
- * Never place a second persistent UI layer over it. Runtime values and actions
- * live in the bottom sheet opened from the exact painted controls.
+ * Recycle Rush responsive UI layer.
+ * The artwork supplies the factory scene. Text-heavy controls are redrawn as
+ * opaque HTML panels so they stay sharp at every browser scale and never sit
+ * transparently on top of the painted labels.
  */
-.hud-live,
-.station-live,
-#factoryLevelLive,
-#ecoLive,
-.boost-timer,
-#factoryUpgradeLive,
-#missionBadge,
-.nav-active{
-  display:none!important;
+
+#stage{
+  container-type:inline-size;
 }
 
-/* No persistent outlines, floating values or duplicate affordability indicators. */
+#art{
+  image-rendering:auto;
+  backface-visibility:hidden;
+  transform:translateZ(0);
+}
+
+/* Remove old debug/feedback overlays. */
 .hit.affordable::after,
 .level-pop,
-.coin-fx{
+.coin-fx,
+#missionBadge{
   display:none!important;
 }
 
-/* Hit targets are invisible. Only a brief press tint is allowed. */
 .hit{
   outline:none!important;
   -webkit-appearance:none;
@@ -31,101 +31,259 @@
   border-radius:8px;
 }
 .hit:focus,.hit:focus-visible{outline:none!important;box-shadow:none!important}
-.hit:active{
-  transform:none!important;
-  background:#ffffff20!important;
+.hit:active{transform:none!important;background:#ffffff20!important}
+.hit[data-station]:active{background:linear-gradient(#ffe27a38,#ffc22924)!important}
+
+/* ---------- crisp top HUD ---------- */
+.hud-live{
+  display:flex!important;
+  position:absolute;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-weight:1000;
+  font-size:clamp(12px,2.55cqw,21px);
+  line-height:1;
+  white-space:nowrap;
+  text-shadow:0 2px 2px #000;
+  background:linear-gradient(180deg,#293d49 0%,#14242f 100%);
+  border:1.5px solid #617682;
+  border-radius:10px;
+  box-shadow:inset 0 1px 0 #ffffff32,0 2px 4px #0008;
+  pointer-events:none;
+  overflow:hidden;
 }
-.hit[data-station]:active{
-  background:linear-gradient(#ffe27a38,#ffc22924)!important;
+#coinsLive{left:17.2%;top:.55%;width:22.6%;height:4.7%}
+#rateLive{left:42.2%;top:.55%;width:28.4%;height:4.7%;color:#62f06d}
+#gemsLive{left:76.0%;top:.55%;width:15.7%;height:4.7%}
+#factoryLevelLive{
+  left:2.7%;top:4.25%;width:5.4%;height:3.2%;
+  color:#fff;background:linear-gradient(#86d42b,#3f7f10);
+  border-color:#ffe16b;border-radius:10px;
+  font-size:clamp(10px,1.75cqw,15px);
+}
+#ecoLive{
+  left:78.8%;top:6.45%;width:15.6%;height:3.55%;
+  color:#263241;text-shadow:none;
+  background:linear-gradient(#fffcef,#f0dfb8);
+  border-color:#d3b876;
+  font-size:clamp(10px,1.65cqw,14px);
+}
+#ecoLive::before{content:'🌿 ';font-size:.95em}
+
+/* ---------- task panel: fully covers the painted small panel ---------- */
+#taskLive{
+  position:absolute;
+  left:.9%;top:11.35%;width:22.6%;height:20.75%;
+  display:flex;flex-direction:column;
+  color:#26343b;
+  background:linear-gradient(180deg,#fff9e9,#f4e5c5);
+  border:2px solid #c9ac73;
+  border-radius:14px;
+  box-shadow:0 4px 10px #0006,inset 0 1px #fff;
+  overflow:hidden;
+  pointer-events:none;
+}
+#taskLiveTitle{
+  height:20%;min-height:27px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;
+  font-size:clamp(13px,2.25cqw,19px);
+  font-weight:1000;
+  background:linear-gradient(#56be2b,#258f18);
+  border-bottom:2px solid #217c18;
+  text-shadow:0 1px 2px #145b13;
+}
+#taskLiveBody{
+  flex:1;
+  display:grid;
+  grid-template-rows:repeat(4,1fr);
+  padding:1.5% 5%;
+  gap:0;
+}
+.task-live-row{
+  min-height:0;
+  display:grid;
+  grid-template-columns:18% 1fr 19%;
+  align-items:center;
+  border-bottom:1px solid #d4c39f;
+  font-size:clamp(9px,1.48cqw,13px);
+}
+.task-live-row:last-child{border-bottom:0}
+.task-live-row.done{opacity:.55}
+.task-icon{font-size:clamp(13px,2.3cqw,20px);text-align:center}
+.task-copy{min-width:0;display:flex;flex-direction:column;gap:1px}
+.task-copy b{font-size:1em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.task-copy small{font-size:.84em;color:#55812c;font-weight:900}
+.task-copy i{display:block;height:3px;background:#d5c7a8;border-radius:99px;overflow:hidden}
+.task-copy i em{display:block;height:100%;background:#72bd22;border-radius:99px}
+.task-reward{font-size:.72em;color:#8d5a17;text-align:right;font-weight:1000}
+
+/* ---------- station cards: opaque, crisp and exactly over painted cards ---------- */
+.station-live{
+  display:flex!important;
+  position:absolute;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:.2em .35em;
+  color:#fff;
+  text-align:center;
+  font-weight:1000;
+  line-height:1.04;
+  font-size:clamp(10px,1.72cqw,15px);
+  background:linear-gradient(180deg,#3376a6,#17466d);
+  border:2px solid #d7f3ff;
+  border-radius:12px;
+  box-shadow:0 4px 8px #0009,inset 0 1px #ffffff45;
+  pointer-events:none;
+}
+.station-live small{display:block;font-size:.86em;color:#e2f7ff;margin-top:.15em}
+.station-live.bottleneck{border-color:#ffd25b;box-shadow:0 0 12px #ffbd36,0 4px 8px #0009}
+.station-live.affordable::after{
+  content:'↑';
+  position:absolute;right:-6%;bottom:-16%;
+  width:24%;aspect-ratio:1;
+  display:grid;place-items:center;
+  color:#fff;background:#57c91c;border:2px solid #d9ff9f;border-radius:8px;
+  font-size:1.05em;
+  box-shadow:0 2px 4px #0008;
+}
+#stationLive1{left:44.63%;top:22.30%;width:17.0%;height:4.32%}
+#stationLive2{left:68.01%;top:23.25%;width:17.22%;height:4.50%}
+#stationLive3{left:38.47%;top:40.00%;width:17.75%;height:4.45%}
+#stationLive4{left:70.98%;top:43.47%;width:17.43%;height:4.39%}
+#stationLive5{left:38.68%;top:57.04%;width:17.54%;height:4.45%}
+#stationLive6{left:73.53%;top:62.19%;width:17.65%;height:4.45%}
+
+/* Small runtime badges, shown only while a reward is active. */
+.boost-timer{
+  position:absolute;right:2.0%;width:10.8%;
+  display:none;
+  padding:.28em .1em;
+  color:#fff;background:#132533ee;
+  border:1px solid #8fd9ff;border-radius:7px;
+  font-size:clamp(8px,1.25cqw,11px);
+  font-weight:1000;text-align:center;
+  box-shadow:0 2px 5px #0008;
+  pointer-events:none;
+}
+.boost-timer.on{display:block}
+#doubleTimer{top:17.15%}
+#truckTimer{top:25.75%}
+#offlineTimer{top:34.35%}
+
+/* ---------- bottom product and upgrade panels ---------- */
+#productLive{
+  position:absolute;left:1.2%;top:81.05%;width:62.6%;height:9.25%;
+  color:#26343b;
+  background:linear-gradient(#fff9e9,#f0dfba);
+  border:2px solid #c8aa70;
+  border-radius:15px;
+  box-shadow:0 3px 8px #0007,inset 0 1px #fff;
+  overflow:hidden;
+  pointer-events:none;
+}
+#productLiveTitle{
+  height:27%;display:flex;align-items:center;justify-content:center;
+  font-size:clamp(11px,1.75cqw,15px);font-weight:1000;
+  border-bottom:1px solid #d2bd94;
+}
+#productLiveBody{height:73%;display:grid;grid-template-columns:repeat(3,1fr)}
+.product-live-item{
+  display:grid;
+  grid-template-columns:32% 68%;
+  grid-template-rows:34% 29% 27%;
+  align-items:center;
+  padding:2% 4%;
+  border-right:1px solid #d3bd91;
+  font-size:clamp(8px,1.22cqw,11px);
+}
+.product-live-item:last-child{border-right:0}
+.product-live-item>span{grid-row:1/4;font-size:clamp(19px,3.8cqw,32px);text-align:center}
+.product-live-item>b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.product-live-item>small{font-weight:900;color:#4b6a3e}
+.product-live-item>em{font-style:normal;color:#8e5b16;font-size:.9em}
+
+#factoryUpgradeLive{
+  position:absolute;
+  left:64.8%;top:81.05%;width:33.2%;height:9.25%;
+  display:flex!important;
+  flex-direction:column;align-items:center;justify-content:center;
+  color:#255626;text-shadow:none;
+  font-weight:1000;font-size:clamp(13px,2.2cqw,19px);
+  background:linear-gradient(#fff9e9,#f0dfba);
+  border:2px solid #c8aa70;border-radius:15px;
+  box-shadow:0 3px 8px #0007,inset 0 1px #fff;
+  pointer-events:none;
+}
+#factoryUpgradeLive::before{content:'工厂升级';font-size:.76em;color:#374a39;margin-bottom:.28em}
+#factoryUpgradeLive small{
+  display:block;width:86%;padding:.35em .25em;margin-top:.25em;
+  color:#fff;background:linear-gradient(#98df31,#46a70e);
+  border:2px solid #bff26c;border-radius:9px;
+  text-align:center;text-shadow:0 1px #39770b;
 }
 
-/* Preserve artwork detail when the browser scales it. */
-#art{
-  image-rendering:auto;
-  backface-visibility:hidden;
-  transform:translateZ(0);
+/* ---------- crisp bottom navigation ---------- */
+#navBarLive{
+  position:absolute;left:1.2%;right:1.2%;top:90.6%;height:9.4%;
+  display:grid;grid-template-columns:repeat(5,1fr);
+  color:#fff;background:linear-gradient(#1f3d50,#102a3b);
+  border:2px solid #42657a;border-bottom:0;
+  border-radius:13px 13px 0 0;
+  box-shadow:0 -2px 8px #0007;
+  overflow:hidden;pointer-events:none;
+}
+.nav-live-item{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2%;border-right:1px solid #466173;
+  font-size:clamp(11px,1.7cqw,15px);font-weight:1000;
+  text-shadow:0 1px 2px #000;
+}
+.nav-live-item:last-child{border-right:0}
+.nav-live-item span{font-size:clamp(22px,4.0cqw,34px);line-height:1}
+.nav-active{
+  display:block!important;
+  position:absolute;top:90.6%;height:9.4%;width:19.52%;
+  z-index:2;border:3px solid #6ed8ff;border-radius:12px 12px 0 0;
+  box-shadow:inset 0 0 18px #46c2ff66;
+  pointer-events:none;transition:left .2s;
 }
 
-/*
- * Desktop readable mode.
- * Fitting a 9:16 screen into a short desktop viewport made the entire game only
- * ~460px wide. On desktop we prefer readable controls and allow vertical scroll.
- */
+/* ---------- sheets, messages and desktop readable mode ---------- */
+#toast{font-size:clamp(14px,2.1cqw,20px)}
+
 @media (min-width:900px){
-  html,body{
-    min-height:100%;
-    height:auto;
-    overflow-x:hidden;
-    overflow-y:auto;
-  }
-  body{
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    padding:14px 0 28px;
-  }
+  html,body{min-height:100%;height:auto;overflow-x:hidden;overflow-y:auto}
+  body{display:flex;justify-content:center;align-items:flex-start;padding:14px 0 32px}
   #stage{
-    width:min(640px,92vw);
+    width:min(760px,92vw);
     height:auto;
     aspect-ratio:941/1672;
-    max-width:none;
-    max-height:none;
+    max-width:none;max-height:none;
     flex:0 0 auto;
   }
-
-  /* Larger, easier-to-read detail sheet on desktop. */
-  #sheet{
-    left:1.5%;
-    right:1.5%;
-    max-height:86%;
-    border-radius:24px;
-  }
-  .sheet-head{
-    height:68px;
-    padding:0 20px;
-  }
-  .sheet-head h2{
-    font-size:30px;
-  }
-  #closeSheet{
-    width:48px;
-    height:48px;
-    font-size:29px;
-  }
-  #sheetBody{
-    max-height:calc(86% - 68px);
-    padding:18px 18px 28px;
-    font-size:18px;
-  }
-  .card{
-    padding:16px;
-    margin-bottom:14px;
-    border-radius:18px;
-  }
-  .card h3{
-    font-size:24px;
-  }
-  .btn{
-    min-height:52px;
-    padding:13px 17px;
-    font-size:18px;
-  }
-  .iconbox{
-    width:54px;
-    height:54px;
-    font-size:34px;
-  }
-  .stat{
-    min-height:76px;
-    font-size:17px;
-  }
-  #toast{
-    font-size:20px;
-    min-width:300px;
-  }
+  #sheet{left:1.4%;right:1.4%;max-height:86%;border-radius:25px}
+  .sheet-head{height:70px;padding:0 21px}
+  .sheet-head h2{font-size:31px}
+  #closeSheet{width:50px;height:50px;font-size:30px}
+  #sheetBody{max-height:calc(86% - 70px);padding:19px 19px 30px;font-size:19px}
+  .card{padding:17px;margin-bottom:15px;border-radius:19px}
+  .card h3{font-size:25px}
+  .btn{min-height:54px;padding:14px 18px;font-size:19px}
+  .iconbox{width:56px;height:56px;font-size:35px}
+  .stat{min-height:78px;font-size:18px}
+  #toast{font-size:21px;min-width:310px}
 }
 
-/* Very short desktop windows still get a useful enlargement without becoming huge. */
 @media (min-width:900px) and (max-height:760px){
-  #stage{width:min(560px,88vw)}
+  #stage{width:min(680px,90vw)}
+}
+
+@media(max-width:520px){
+  #taskLive{border-radius:9px;border-width:1px}
+  .station-live{border-radius:7px;border-width:1px}
+  #productLive,#factoryUpgradeLive{border-radius:9px;border-width:1px}
+  #navBarLive{border-radius:8px 8px 0 0;border-width:1px}
 }
