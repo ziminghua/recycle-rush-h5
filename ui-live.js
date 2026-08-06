@@ -32,32 +32,38 @@ function render(){
   const s=api.state();
   if(!s) return;
 
+  const tasks=[
+    ['♻️','回收塑料',s.tasks?.plastic||0,5000,'50M',s.taskClaims?.plastic],
+    ['📄','压缩纸张',s.tasks?.paper||0,2500,'40M',s.taskClaims?.paper],
+    ['📦','打包成品',s.tasks?.box||0,2000,'30M',s.taskClaims?.box],
+    ['📍','解锁区域',s.factoryLevel>=9?1:0,1,'500',s.taskClaims?.factory]
+  ];
+
   const task=document.getElementById('taskLiveBody');
-  if(task){
-    task.innerHTML=
-      taskRow('♻️','回收塑料',s.tasks?.plastic||0,5000,'50M',s.taskClaims?.plastic)+
-      taskRow('📄','压缩纸张',s.tasks?.paper||0,2500,'40M',s.taskClaims?.paper)+
-      taskRow('📦','打包成品',s.tasks?.box||0,2000,'30M',s.taskClaims?.box)+
-      taskRow('📍','解锁区域',s.factoryLevel>=9?1:0,1,'500',s.taskClaims?.factory);
-  }
+  if(task) task.innerHTML=tasks.map(x=>taskRow(...x)).join('');
+
+  const completed=tasks.filter(x=>x[2]>=x[3]).length;
+  const mini=document.getElementById('taskMiniText');
+  if(mini) mini.textContent=`${completed} / ${tasks.length} 项可完成`;
 
   const product=document.getElementById('productLiveBody');
   if(product){
     const levels=s.stations||[0,0,0,0,0,0];
     const items=[
-      ['🧴','再生塑料',levels[1]*80000,24.5e6],
-      ['📄','再生纸浆',levels[2]*70000,18.5e6],
-      ['📦','再生纸板',levels[3]*65000,9.8e6]
+      ['🧴','再生塑料',levels[1]*80000],
+      ['📄','再生纸浆',levels[2]*70000],
+      ['📦','再生纸板',levels[3]*65000]
     ];
-    product.innerHTML=items.map(x=>`<div class="product-live-item"><span>${x[0]}</span><b>${x[1]}</b><small>${compact(x[2])}/秒</small><em>🪙 ${compact(x[3])}</em></div>`).join('');
+    product.innerHTML=items.map(x=>`<div class="product-live-item compact"><span>${x[0]}</span><b>${x[1]}</b><small>${compact(x[2])}/秒</small></div>`).join('');
   }
-
-  const eco=document.getElementById('ecoLiveText');
-  if(eco) eco.textContent=compact(s.eco||0);
 }
 
 function start(){
   if(timer) return;
+  const taskPanel=document.getElementById('taskLive');
+  if(taskPanel){
+    taskPanel.addEventListener('click',()=>document.querySelector('[data-action="tasks"]')?.click());
+  }
   render();
   timer=window.setInterval(render,300);
 }
