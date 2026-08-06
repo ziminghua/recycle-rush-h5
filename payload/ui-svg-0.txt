@@ -1,0 +1,85 @@
+<svg id="game" width="900" height="1600" viewBox="0 0 900 1600" preserveAspectRatio="xMidYMid meet" role="img" aria-label="再生工厂轻放置经营游戏">
+<defs>
+  <linearGradient id="hud" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#243847"/><stop offset="1" stop-color="#0c1822"/></linearGradient>
+  <linearGradient id="hudCard" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#263b4a"/><stop offset="1" stop-color="#101f2b"/></linearGradient>
+  <linearGradient id="cream" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff9e7"/><stop offset="1" stop-color="#ead6ad"/></linearGradient>
+  <linearGradient id="greenBtn" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#9ae52e"/><stop offset="1" stop-color="#45a713"/></linearGradient>
+  <linearGradient id="blueBtn" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#5acfff"/><stop offset="1" stop-color="#1478ca"/></linearGradient>
+  <linearGradient id="purpleBtn" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c774ff"/><stop offset="1" stop-color="#7834c6"/></linearGradient>
+  <linearGradient id="orangeBtn" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ffd351"/><stop offset="1" stop-color="#ee8b16"/></linearGradient>
+  <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#9fd47c"/><stop offset="1" stop-color="#68ae5d"/></linearGradient>
+  <linearGradient id="dirty" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5b5a51"/><stop offset="1" stop-color="#292b29"/></linearGradient>
+  <linearGradient id="road" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#515e69"/><stop offset=".5" stop-color="#394650"/><stop offset="1" stop-color="#56636e"/></linearGradient>
+  <linearGradient id="blueMachine" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#43bfe9"/><stop offset=".55" stop-color="#1673a6"/><stop offset="1" stop-color="#0a446b"/></linearGradient>
+  <linearGradient id="greenMachine" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#68c34a"/><stop offset=".55" stop-color="#2d852f"/><stop offset="1" stop-color="#1b5d24"/></linearGradient>
+  <linearGradient id="orangeMachine" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffc64a"/><stop offset=".55" stop-color="#e18a18"/><stop offset="1" stop-color="#9a4f0d"/></linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#000" flood-opacity=".55"/></filter>
+  <filter id="shadowStrong" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#000" flood-opacity=".7"/></filter>
+  <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="7"/></filter>
+  <pattern id="conveyor" width="34" height="22" patternUnits="userSpaceOnUse"><rect width="34" height="22" fill="#263b46"/><rect x="3" width="12" height="22" rx="2" fill="#718995"/><rect x="18" width="12" height="22" rx="2" fill="#4e6672"/></pattern>
+  <pattern id="boxes" width="48" height="40" patternUnits="userSpaceOnUse"><rect x="2" y="4" width="40" height="30" rx="3" fill="#c98735" stroke="#734719" stroke-width="3"/><path d="M22 4v30M2 16h40" stroke="#edb864" stroke-width="2"/></pattern>
+</defs>
+
+<!-- world background -->
+<rect width="900" height="1600" fill="#07131d"/>
+<rect x="0" y="170" width="900" height="1160" fill="url(#grass)"/>
+<path d="M0 170H900V307L775 363L690 279L550 307L415 248L250 292L90 232L0 250Z" fill="#436c49" opacity=".85"/>
+<path d="M0 248L214 250L302 425L270 1328H0Z" fill="url(#dirty)"/>
+<path d="M280 334L786 265L900 329V1328H270Z" fill="#79bf68"/>
+<path d="M305 344L900 274" stroke="#fff" stroke-width="7" stroke-dasharray="18 15" opacity=".9"/>
+<path d="M778 170L900 170V1328H748L770 1040L742 730L772 405Z" fill="url(#road)"/>
+<path d="M842 170V1328" stroke="#f0d452" stroke-width="7" stroke-dasharray="30 24" opacity=".9"/>
+<path d="M744 170L768 1328" stroke="#b7b9b9" stroke-width="18" opacity=".85"/>
+
+<!-- distant fence and trees -->
+<g opacity=".98">
+  <path d="M130 264L740 190" stroke="#7c786b" stroke-width="24"/>
+  <path d="M130 264L740 190" stroke="#bbb6a8" stroke-width="16" stroke-dasharray="48 9"/>
+  <g fill="#467c3f" stroke="#2f5f35" stroke-width="5">
+    <circle cx="105" cy="212" r="45"/><circle cx="170" cy="200" r="38"/><circle cx="615" cy="205" r="42"/><circle cx="700" cy="195" r="38"/>
+  </g>
+  <g fill="#72a957"><circle cx="95" cy="197" r="24"/><circle cx="620" cy="190" r="24"/></g>
+</g>
+
+<!-- dirty ruins -->
+<g filter="url(#shadow)">
+  <path d="M20 590L188 555L250 655L224 900L40 924L9 800Z" fill="#353632" stroke="#1c1e1c" stroke-width="8"/>
+  <path d="M25 606L150 578L206 638L85 676Z" fill="#4d4e47"/>
+  <rect x="35" y="705" width="150" height="142" fill="#242624" stroke="#55564f" stroke-width="7"/>
+  <path d="M36 706L74 655L104 706L145 655L185 706" fill="none" stroke="#171817" stroke-width="14"/>
+  <g fill="#141514"><circle cx="70" cy="920" r="25"/><circle cx="178" cy="950" r="24"/><circle cx="120" cy="1000" r="17"/></g>
+  <g fill="#1e201d"><path d="M15 1020l50-40 40 70z"/><path d="M150 1050l42-55 58 62z"/></g>
+  <g fill="#151715"><circle cx="62" cy="1100" r="16"/><circle cx="183" cy="1158" r="18"/><circle cx="115" cy="1214" r="12"/></g>
+  <g fill="#242623"><path d="M35 1140l52-27 20 44-58 28z"/><path d="M142 1198l65-23 19 42-73 24z"/></g>
+</g>
+
+<!-- top garbage truck -->
+<g transform="translate(240 245)" filter="url(#shadow)">
+  <path d="M0 65L17 6H190L220 38V122H37Z" fill="#54a62e" stroke="#284c24" stroke-width="8"/>
+  <path d="M190 35H252L278 73V120H211Z" fill="#78bf3c" stroke="#284c24" stroke-width="8"/>
+  <rect x="216" y="51" width="35" height="31" rx="4" fill="#bde6ef"/>
+  <path d="M34 31h121v64H29z" fill="#459428"/>
+  <path d="M64 41l25 22-18 27" fill="none" stroke="#d7f5c5" stroke-width="8"/>
+  <circle cx="65" cy="124" r="22" fill="#1c252b" stroke="#67737a" stroke-width="7"/><circle cx="222" cy="124" r="22" fill="#1c252b" stroke="#67737a" stroke-width="7"/>
+  <path d="M-65 118L40 83L45 137L-45 155Z" fill="#635f57"/>
+  <g fill="#d8d5c6"><circle cx="-35" cy="115" r="12"/><rect x="-18" y="105" width="20" height="15"/><circle cx="18" cy="121" r="11"/></g>
+  <text x="100" y="80" text-anchor="middle" font-size="46" font-weight="900" fill="#d9f4c8">♻</text>
+</g>
+
+<!-- community sign -->
+<g transform="translate(205 285) rotate(-7)" filter="url(#shadow)">
+  <rect x="0" y="0" width="236" height="72" rx="6" fill="#2d773d" stroke="#76502b" stroke-width="12"/>
+  <text x="118" y="49" text-anchor="middle" fill="#fff" font-size="34" font-weight="900">社区回收站</text>
+</g>
+
+<!-- sorting line -->
+<g transform="translate(304 420)" filter="url(#shadow)">
+  <path d="M0 92L35 38H344L373 88V172H0Z" fill="#cbd8d5" stroke="#486269" stroke-width="8"/>
+  <rect x="32" y="74" width="318" height="74" rx="12" fill="#e8efeb" stroke="#75898c" stroke-width="6"/>
+  <rect x="18" y="134" width="351" height="30" rx="12" fill="url(#conveyor)" stroke="#1e353f" stroke-width="6"/>
+  <path class="belt-line" d="M30 149H352" stroke="#b5c8cf" stroke-width="4" stroke-dasharray="12 18"/>
+  <g class="worker" transform="translate(63 45)"><circle r="15" fill="#f2b276"/><path d="M-18 -6q18-20 36 0v8h-36z" fill="#3caa4c"/><rect x="-12" y="13" width="24" height="34" rx="8" fill="#2d7e38"/></g>
+  <g class="worker" transform="translate(130 45)"><circle r="15" fill="#e9aa70"/><path d="M-18 -6q18-20 36 0v8h-36z" fill="#3caa4c"/><rect x="-12" y="13" width="24" height="34" rx="8" fill="#2d7e38"/></g>
+  <g class="worker" transform="translate(198 45)"><circle r="15" fill="#f4bb82"/><path d="M-18 -6q18-20 36 0v8h-36z" fill="#3caa4c"/><rect x="-12" y="13" width="24" height="34" rx="8" fill="#2d7e38"/></g>
+  <g class="worker" transform="translate(266 45)"><circle r="15" fill="#e9a56b"/><path d="M-18 -6q18-20 36 0v8h-36z" fill="#3caa4c"/><rect x="-12" y="13" width="24" height="34" rx="8" fill="#2d7e38"/></g>
+  <g transform="
