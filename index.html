@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>Recycle Rush: Idle Factory</title>
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -38,17 +39,21 @@ body{display:grid;place-items:center}
 </div>
 <script>
 (async()=>{
- const files=Array.from({length:8},(_,i)=>`ui-img-${i}.txt`);
- const parts=await Promise.all(files.map(n=>fetch(`./payload/${n}`).then(r=>{
+ const version='20260806-1108';
+ const files=['ui-img-0.txt','ui-img-1fix.txt','ui-img-1b.txt','ui-img-1c.txt','ui-img-1d.txt','ui-img-2.txt','ui-img-3.txt','ui-img-4.txt','ui-img-5.txt','ui-img-6.txt','ui-img-7.txt'];
+ const parts=await Promise.all(files.map(n=>fetch(`./payload/${n}?v=${version}`,{cache:'no-store'}).then(r=>{
    if(!r.ok) throw new Error(`加载失败: ${n}`);
    return r.text();
  })));
  const art=document.getElementById('art');
  await new Promise((resolve,reject)=>{
    art.onload=resolve;
-   art.onerror=reject;
+   art.onerror=()=>reject(new Error('图片数据解码失败'));
    art.src='data:image/webp;base64,'+parts.join('');
  });
+ if(art.naturalWidth!==540||art.naturalHeight!==960){
+   throw new Error(`图片尺寸异常: ${art.naturalWidth}×${art.naturalHeight}`);
+ }
  const toast=document.getElementById('toast');
  let timer;
  const show=msg=>{
@@ -64,7 +69,7 @@ body{display:grid;place-items:center}
  document.querySelector('[data-action="factory"]').onclick=()=>show('工厂升级需要 256M');
  document.querySelectorAll('[data-nav]').forEach(el=>el.onclick=()=>show(el.dataset.nav));
 })().catch(err=>{
- document.body.innerHTML=`<pre style="color:white;padding:20px">${err.stack||err}</pre>`;
+ document.body.innerHTML=`<pre style="color:white;padding:20px;white-space:pre-wrap">${err.stack||err}</pre>`;
 });
 </script>
 </body>
