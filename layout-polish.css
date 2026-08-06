@@ -1,0 +1,80 @@
+/* Final readability overrides. */
+
+/* Rebuild the three painted reward buttons as crisp HTML cards. */
+.boost-timer{
+  display:flex!important;
+  right:2.3%!important;
+  width:11.4%!important;
+  height:8.15%!important;
+  padding:8% 3% 4%!important;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  gap:2%;
+  border:2px solid #e7f6ff!important;
+  border-radius:12px!important;
+  color:#fff!important;
+  text-align:center!important;
+  font-size:clamp(8px,1.18cqw,11px)!important;
+  line-height:1.05!important;
+  text-shadow:0 1px 2px #000!important;
+  box-shadow:0 4px 9px #0008,inset 0 1px #ffffff66!important;
+  overflow:hidden;
+}
+.boost-timer::before{
+  position:absolute;
+  left:0;right:0;top:8%;
+  font-size:clamp(10px,1.65cqw,15px);
+  font-weight:1000;
+  line-height:1.05;
+  white-space:pre-line;
+}
+.boost-timer::after{
+  content:'▶ 自愿';
+  display:block;
+  width:86%;
+  padding:.22em 0;
+  margin-top:.16em;
+  border-radius:5px;
+  background:#102634aa;
+  font-size:.82em;
+}
+#doubleTimer{
+  top:11.58%!important;
+  background:linear-gradient(180deg,#b456f5,#6620b5)!important;
+}
+#doubleTimer::before{content:'×2\A双倍收益'}
+#truckTimer{
+  top:20.18%!important;
+  background:linear-gradient(180deg,#53c7ff,#167bbf)!important;
+}
+#truckTimer::before{content:'🚚\A快速运输'}
+#offlineTimer{
+  top:28.78%!important;
+  background:linear-gradient(180deg,#ffc94c,#e68a16)!important;
+  color:#3f2b00!important;
+  text-shadow:0 1px #fff5a6!important;
+}
+#offlineTimer::before{content:'🪙\A离线收益'}
+#offlineTimer::after{color:#fff;text-shadow:0 1px #000}
+
+/* The runtime text becomes a compact status line below the title. */
+.boost-timer:not(.on){font-size:0!important}
+.boost-timer:not(.on)::after{font-size:clamp(7px,1.0cqw,10px)!important}
+
+/* Align the live navigation and the interaction grid exactly. */
+#navBarLive{left:0!important;right:0!important;border-radius:12px 12px 0 0!important}
+.nav-active{width:20%!important}
+
+/* Give the task copy more room and make the important numbers heavier. */
+#taskLive{width:23.1%!important}
+.task-copy b{letter-spacing:.01em}
+.task-copy small{font-size:.88em!important}
+
+/* Desktop-first presentation: readable instead of forced to fit one short screen. */
+@media (min-width:900px){
+  #stage{width:min(780px,94vw)!important}
+}
+@media (min-width:900px) and (max-height:760px){
+  #stage{width:min(700px,92vw)!important}
+}
