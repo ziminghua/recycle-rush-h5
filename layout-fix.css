@@ -1,9 +1,10 @@
 /*
- * The concept artwork already contains station labels, task details,
- * boost labels and the bottom navigation. Do not draw a second copy on top.
- * Dynamic values are limited to the three top resource windows; all detailed
- * live data is presented in the interactive bottom sheet.
+ * The concept artwork is a complete composed screen: HUD, station labels,
+ * task panel, boosts, factory panel and bottom navigation are already painted.
+ * Never place a second persistent UI layer over it. Runtime values and actions
+ * live in the bottom sheet opened from the exact painted controls.
  */
+.hud-live,
 .station-live,
 #factoryLevelLive,
 #ecoLive,
@@ -14,51 +15,28 @@
   display:none!important;
 }
 
-/* Persistent upgrade outlines were visually fighting the painted machinery. */
+/* No persistent outlines or duplicate affordability indicators on the map. */
 .hit.affordable::after{display:none!important}
 
-/* Keep the live economy, but fully replace—not overlap—the painted numbers. */
-#coinsLive,
-#rateLive,
-#gemsLive{
-  top:.35%;
-  height:4.35%;
-  background:linear-gradient(180deg,#263b49 0%,#152632 100%);
-  border:1px solid #58707e;
-  border-radius:8px;
-  box-shadow:inset 0 1px 0 #ffffff26,0 1px 3px #0007;
-  line-height:1;
-  white-space:nowrap;
-  overflow:hidden;
+/* Hit targets are invisible. Only a brief press tint is allowed. */
+.hit{
+  outline:none!important;
+  -webkit-appearance:none;
+  appearance:none;
+  touch-action:manipulation;
 }
-#coinsLive{left:17.1%;width:22.7%}
-#rateLive{left:42.1%;width:28.5%}
-#gemsLive{left:76.1%;width:15.6%}
-
-/* Map controls are invisible until pressed; feedback is a short warm flash. */
-.hit[data-station]{
-  border-radius:22%;
-  transition:background .08s ease,filter .08s ease;
+.hit:focus,.hit:focus-visible{outline:none!important;box-shadow:none!important}
+.hit:active{
+  transform:none!important;
+  background:#ffffff20!important;
 }
 .hit[data-station]:active{
-  transform:none;
-  background:radial-gradient(circle at 50% 55%,#ffe16b66 0%,#ffc83d2e 43%,transparent 72%);
-  filter:brightness(1.1);
+  background:linear-gradient(#ffe27a38,#ffc22924)!important;
 }
 
-/* Side controls already have painted button faces. */
-.hit[data-action="double"]:active,
-.hit[data-action="truck"]:active,
-.hit[data-action="offline"]:active,
-.hit[data-action="factory"]:active,
-.hit[data-nav]:active{
-  transform:none;
-  background:#ffffff22;
-}
-
-/* Prevent effect labels from covering station names. */
-.level-pop,.coin-fx{font-size:clamp(12px,1.9vw,18px)}
-
-@media(max-width:520px){
-  #coinsLive,#rateLive,#gemsLive{border-radius:6px}
+/* Effects must never sit over the painted station cards. */
+.level-pop,.coin-fx{
+  font-size:clamp(12px,1.9vw,18px);
+  max-width:34%;
+  white-space:nowrap;
 }
