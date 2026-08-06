@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>Recycle Rush: Idle Factory</title>
-<link rel="stylesheet" href="./styles.css?v=20260806-1235">
-<link rel="stylesheet" href="./layout-fix.css?v=20260806-1235">
+<link rel="stylesheet" href="./styles.css?v=20260806-1445">
+<link rel="stylesheet" href="./layout-fix.css?v=20260806-1445">
 </head>
 <body>
 <div id="stage">
@@ -19,35 +19,38 @@
   <div id="factoryUpgradeLive"></div><div id="missionBadge"></div><div id="navActive" class="nav-active" style="left:0"></div>
  </div>
  <div id="fx"></div>
- <button class="hit" data-action="menu" style="left:94%;top:0;width:6%;height:5.5%" aria-label="设置"></button>
- <button class="hit" data-action="tasks" style="left:1%;top:10%;width:22%;height:23%" aria-label="任务"></button>
 
- <!-- Hit areas follow the actual machinery, not the painted station labels. -->
- <button class="hit" data-station="1" style="left:34.5%;top:22.5%;width:31%;height:16.5%" aria-label="分类台"></button>
- <button class="hit" data-station="2" style="left:64%;top:24.5%;width:23.5%;height:18%" aria-label="塑料破碎机"></button>
- <button class="hit" data-station="3" style="left:35%;top:40.5%;width:28%;height:18%" aria-label="纸张压缩机"></button>
- <button class="hit" data-station="4" style="left:63%;top:42%;width:27%;height:19%" aria-label="包装站"></button>
- <button class="hit" data-station="5" style="left:30.5%;top:56.5%;width:35%;height:22.5%" aria-label="仓库"></button>
- <button class="hit" data-station="6" style="left:63.5%;top:57.5%;width:32%;height:23%" aria-label="装车区"></button>
+ <!-- Exact hit rectangles measured against the 941 × 1672 source artwork. -->
+ <button class="hit" data-action="menu" style="left:90.223%;top:.478%;width:6.908%;height:5.203%" aria-label="设置"></button>
+ <button class="hit" data-action="tasks" style="left:1.063%;top:11.603%;width:21.254%;height:20.096%" aria-label="任务"></button>
 
- <button class="hit" data-action="double" style="left:88%;top:10.8%;width:11%;height:8.8%" aria-label="双倍收益"></button>
- <button class="hit" data-action="truck" style="left:88%;top:19.5%;width:11%;height:9.2%" aria-label="快速运输"></button>
- <button class="hit" data-action="offline" style="left:88%;top:28.4%;width:11%;height:9.5%" aria-label="离线收益"></button>
- <button class="hit" data-action="factory" style="left:64.5%;top:81.5%;width:34.5%;height:12.5%" aria-label="工厂升级"></button>
- <button class="hit" data-nav="工厂" style="left:0;top:94%;width:20%;height:6%" aria-label="工厂"></button>
- <button class="hit" data-nav="工人" style="left:20%;top:94%;width:20%;height:6%" aria-label="工人"></button>
- <button class="hit" data-nav="研究" style="left:40%;top:94%;width:20%;height:6%" aria-label="研究"></button>
- <button class="hit" data-nav="收集" style="left:60%;top:94%;width:20%;height:6%" aria-label="收集"></button>
- <button class="hit" data-nav="商店" style="left:80%;top:94%;width:20%;height:6%" aria-label="商店"></button>
- <div id="tutorial">点击工厂里的机器查看产能、升级成本和瓶颈。详细数据统一在底部面板显示。<button class="btn green">开始经营</button></div>
+ <button class="hit" data-station="1" style="left:44.633%;top:22.309%;width:17.003%;height:4.306%" aria-label="分类台"></button>
+ <button class="hit" data-station="2" style="left:68.013%;top:23.266%;width:17.216%;height:4.486%" aria-label="塑料破碎机"></button>
+ <button class="hit" data-station="3" style="left:38.470%;top:40.012%;width:17.747%;height:4.426%" aria-label="纸张压缩机"></button>
+ <button class="hit" data-station="4" style="left:70.988%;top:43.481%;width:17.428%;height:4.366%" aria-label="包装站"></button>
+ <button class="hit" data-station="5" style="left:38.682%;top:57.057%;width:17.535%;height:4.426%" aria-label="仓库"></button>
+ <button class="hit" data-station="6" style="left:73.539%;top:62.201%;width:17.641%;height:4.426%" aria-label="装车区"></button>
+
+ <button class="hit" data-action="double" style="left:85.760%;top:11.603%;width:11.902%;height:8.373%" aria-label="双倍收益"></button>
+ <button class="hit" data-action="truck" style="left:85.760%;top:20.215%;width:11.902%;height:8.433%" aria-label="快速运输"></button>
+ <button class="hit" data-action="offline" style="left:85.760%;top:28.828%;width:11.902%;height:8.433%" aria-label="离线收益"></button>
+ <button class="hit" data-action="factory" style="left:66.100%;top:85.227%;width:29.756%;height:4.486%" aria-label="工厂升级"></button>
+
+ <button class="hit" data-nav="工厂" style="left:1.488%;top:90.730%;width:18.916%;height:9.091%" aria-label="工厂"></button>
+ <button class="hit" data-nav="工人" style="left:20.404%;top:90.730%;width:19.341%;height:9.091%" aria-label="工人"></button>
+ <button class="hit" data-nav="研究" style="left:39.745%;top:90.730%;width:19.554%;height:9.091%" aria-label="研究"></button>
+ <button class="hit" data-nav="收集" style="left:59.299%;top:90.730%;width:19.341%;height:9.091%" aria-label="收集"></button>
+ <button class="hit" data-nav="商店" style="left:78.640%;top:90.730%;width:19.235%;height:9.091%" aria-label="商店"></button>
+
+ <div id="tutorial">点击画面中的蓝色设备牌查看详情；所有动态数值与升级操作都在底部面板中完成。<button class="btn green">开始经营</button></div>
  <div id="toast"></div>
  <div id="shade"></div>
  <section id="sheet"><header class="sheet-head"><h2 id="sheetTitle"></h2><button id="closeSheet" aria-label="关闭">×</button></header><div id="sheetBody"></div></section>
 </div>
-<script src="./app.js?v=20260806-1235"></script>
+<script src="./app.js?v=20260806-1445"></script>
 <script>
 (async()=>{
- const version='20260806-1235';
+ const version='20260806-1445';
  const files=['ui-img-0.txt','ui-img-1p0.txt','ui-img-1p1.txt','ui-img-1p2.txt','ui-img-1p3.txt','ui-img-1p4.txt','ui-img-1b.txt','ui-img-1c.txt','ui-img-1d.txt','ui-img-2.txt','ui-img-3.txt','ui-img-4.txt','ui-img-5.txt','ui-img-6.txt','ui-img-7.txt'];
  const parts=await Promise.all(files.map(n=>fetch(`./payload/${n}?v=${version}`,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`加载失败: ${n}`);return r.text();})));
  const art=document.getElementById('art');
