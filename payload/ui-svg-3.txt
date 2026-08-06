@@ -1,0 +1,50 @@
+x="46" y="112" text-anchor="middle" fill="#fff" font-size="17" font-weight="800">▶ 5分钟</text></g>
+  <g class="boost-card" id="boostTruck" transform="translate(0 142)"><rect width="92" height="132" rx="20" fill="url(#blueBtn)" stroke="#fff" stroke-width="5"/><g transform="translate(20 15)"><rect width="48" height="33" rx="5" fill="#eef3f3"/><rect x="34" y="17" width="24" height="16" rx="3" fill="#dce8ea"/><circle cx="14" cy="38" r="7" fill="#1c252a"/><circle cx="48" cy="38" r="7" fill="#1c252a"/></g><text x="46" y="76" text-anchor="middle" fill="#fff" font-size="22" font-weight="900">快速运输</text><rect x="16" y="91" width="60" height="28" rx="8" fill="#0c456f" opacity=".78"/><text x="46" y="112" text-anchor="middle" fill="#fff" font-size="17" font-weight="800">▶ 5分钟</text></g>
+  <g class="boost-card" id="boostOffline" transform="translate(0 284)"><rect width="92" height="132" rx="20" fill="url(#orangeBtn)" stroke="#fff" stroke-width="5"/><circle cx="46" cy="35" r="27" fill="#f7ae1b" stroke="#ffdc70" stroke-width="4"/><text x="46" y="45" text-anchor="middle" fill="#fff" font-size="29" font-weight="900">$</text><text x="46" y="76" text-anchor="middle" fill="#fff" font-size="22" font-weight="900">离线收益</text><rect x="16" y="91" width="60" height="28" rx="8" fill="#a65a0e" opacity=".72"/><text x="46" y="112" text-anchor="middle" fill="#fff" font-size="17" font-weight="800">◷ 2小时</text></g>
+</g>
+
+<!-- bottom product and upgrade panels -->
+<g transform="translate(10 1322)" filter="url(#shadow)">
+  <rect width="562" height="179" rx="24" fill="url(#cream)" stroke="#9d8258" stroke-width="5"/>
+  <text x="281" y="35" text-anchor="middle" fill="#44392c" font-size="30" font-weight="900">再生产品</text>
+  <path d="M187 46V168M374 46V168" stroke="#c6b48d" stroke-width="2"/>
+  <g transform="translate(26 58)"><path d="M22 0h34l7 17v68q0 15-15 15H28q-15 0-15-15V17z" fill="#77c9f1" stroke="#357f9f" stroke-width="4"/><rect x="28" y="-9" width="22" height="13" rx="4" fill="#4aaee0"/><text x="95" y="22" fill="#41382e" font-size="20" font-weight="900">再生塑料颗粒</text><text x="95" y="53" fill="#536037" font-size="22" font-weight="900">2.45K/秒</text><text x="95" y="86" fill="#6e4b22" font-size="19" font-weight="800">🪙 24.5M</text></g>
+  <g transform="translate(210 58)"><path d="M0 12l59-12 17 81-59 12z" fill="#fff8e5" stroke="#9e8e70" stroke-width="4"/><path d="M12 26l41-8M15 40l41-8M18 54l41-8M21 68l41-8" stroke="#c9b894" stroke-width="3"/><text x="92" y="22" fill="#41382e" font-size="20" font-weight="900">再生纸浆</text><text x="92" y="53" fill="#536037" font-size="22" font-weight="900">1.85K/秒</text><text x="92" y="86" fill="#6e4b22" font-size="19" font-weight="800">🪙 18.5M</text></g>
+  <g transform="translate(394 58)"><rect x="0" y="8" width="72" height="67" rx="4" fill="#c98735" stroke="#734719" stroke-width="4"/><path d="M36 8v67M0 29h72" stroke="#efbd76" stroke-width="3"/><text x="91" y="22" fill="#41382e" font-size="20" font-weight="900">再生纸板</text><text x="91" y="53" fill="#536037" font-size="22" font-weight="900">980/秒</text><text x="91" y="86" fill="#6e4b22" font-size="19" font-weight="800">🪙 9.8M</text></g>
+</g>
+<g transform="translate(582 1322)" filter="url(#shadow)">
+  <rect width="308" height="179" rx="24" fill="url(#cream)" stroke="#9d8258" stroke-width="5"/>
+  <text x="28" y="37" fill="#44392c" font-size="27" font-weight="900">工厂升级</text>
+  <text x="82" y="86" fill="#35a731" font-size="28" font-weight="900">Lv.8</text><text x="154" y="86" text-anchor="middle" fill="#aa9b7d" font-size="38" font-weight="900">›</text><text x="225" y="86" fill="#35a731" font-size="28" font-weight="900">Lv.9</text>
+  <g class="upgrade-button" id="factoryUpgrade"><rect x="24" y="105" width="260" height="58" rx="15" fill="url(#greenBtn)" stroke="#edfbb8" stroke-width="4"/><circle cx="70" cy="134" r="21" fill="#f3aa1b" stroke="#ffda72" stroke-width="4"/><text x="70" y="143" text-anchor="middle" fill="#fff" font-size="24" font-weight="900">$</text><text x="179" y="145" text-anchor="middle" fill="#fff" font-size="32" font-weight="950">256M</text></g>
+</g>
+
+<!-- bottom navigation -->
+<g transform="translate(0 1510)">
+  <rect width="900" height="90" fill="url(#hud)" stroke="#37566c" stroke-width="4"/>
+  <g id="navFactory" class="nav-card"><rect x="0" y="0" width="180" height="90" fill="#2b77ab"/><path d="M45 50h70v25H45zM55 30h15v20H55zM80 22h15v28H80zM105 36h15v14H105z" fill="#dce6ea" stroke="#5a6b74" stroke-width="3"/><text x="90" y="86" text-anchor="middle" fill="#fff" font-size="24" font-weight="900">工厂</text></g>
+  <g id="navWorkers"><rect x="180" y="0" width="180" height="90" fill="transparent"/><circle cx="270" cy="30" r="17" fill="#f0b477"/><path d="M246 27q24-28 48 0v8h-48z" fill="#f4b52a"/><rect x="250" y="47" width="40" height="28" rx="9" fill="#2e8c3b"/><text x="270" y="86" text-anchor="middle" fill="#fff" font-size="24" font-weight="900">工人</text><circle cx="337" cy="14" r="8" fill="#ff4f4f"/></g>
+  <g id="navResearch"><rect x="360" y="0" width="180" height="90" fill="transparent"/><path d="M438 14h24v22l22 39h-68l22-39z" fill="#86d8ee" stroke="#d6f5ff" stroke-width="4"/><path d="M426 57h48" stroke="#4c89a3" stroke-width="4"/><text x="450" y="86" text-anchor="middle" fill="#fff" font-size="24" font-weight="900">研究</text><circle cx="517" cy="14" r="8" fill="#ff4f4f"/></g>
+  <g id="navCollection"><rect x="540" y="0" width="180" height="90" fill="transparent"/><rect x="609" y="13" width="42" height="56" rx="5" fill="#f3eadb" stroke="#9b7e5a" stroke-width="4"/><rect x="621" y="7" width="18" height="12" rx="4" fill="#886d4e"/><path d="M618 30h24M618 41h24M618 52h18" stroke="#99a4a7" stroke-width="3"/><text x="630" y="86" text-anchor="middle" fill="#fff" font-size="24" font-weight="900">收集</text><circle cx="697" cy="14" r="8" fill="#ff4f4f"/></g>
+  <g id="navShop"><rect x="720" y="0" width="180" height="90" fill="transparent"/><path d="M780 28h60v42h-60z" fill="#eff1ee"/><path d="M772 29l10-18h56l10 18z" fill="#e74235"/><path d="M782 11v18M798 11v18M814 11v18M830 11v18" stroke="#fff" stroke-width="7"/><text x="810" y="86" text-anchor="middle" fill="#fff" font-size="24" font-weight="900">商店</text></g>
+</g>
+
+<!-- hit areas -->
+<g aria-hidden="true">
+  <rect class="hit" data-station="1" x="410" y="375" width="190" height="86"/>
+  <rect class="hit" data-station="2" x="620" y="390" width="178" height="86"/>
+  <rect class="hit" data-station="3" x="348" y="665" width="190" height="86"/>
+  <rect class="hit" data-station="4" x="630" y="675" width="174" height="86"/>
+  <rect class="hit" data-station="5" x="340" y="960" width="175" height="86"/>
+  <rect class="hit" data-station="6" x="646" y="1015" width="170" height="86"/>
+  <rect class="hit" data-action="double" x="800" y="198" width="92" height="132"/>
+  <rect class="hit" data-action="truck" x="800" y="340" width="92" height="132"/>
+  <rect class="hit" data-action="offline" x="800" y="482" width="92" height="132"/>
+  <rect class="hit" data-action="factory" x="606" y="1427" width="260" height="58"/>
+  <rect class="hit" data-nav="工厂" x="0" y="1510" width="180" height="90"/>
+  <rect class="hit" data-nav="工人" x="180" y="1510" width="180" height="90"/>
+  <rect class="hit" data-nav="研究" x="360" y="1510" width="180" height="90"/>
+  <rect class="hit" data-nav="收集" x="540" y="1510" width="180" height="90"/>
+  <rect class="hit" data-nav="商店" x="720" y="1510" width="180" height="90"/>
+</g>
+</svg>
