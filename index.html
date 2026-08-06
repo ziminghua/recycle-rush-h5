@@ -5,72 +5,53 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>Recycle Rush: Idle Factory</title>
-<style>
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#07131d;font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,sans-serif}
-body{display:grid;place-items:center}
-#stage{position:relative;width:min(100vw,56.25vh);height:min(100vh,177.7778vw);max-width:900px;max-height:1600px;overflow:hidden;background:#07131d;box-shadow:0 0 70px #000b}
-#art{display:block;width:100%;height:100%;object-fit:contain}
-.hit{position:absolute;border:0;background:transparent;cursor:pointer}
-#toast{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%) scale(.94);min-width:250px;max-width:76%;padding:14px 22px;border:3px solid #c9f3ff;border-radius:18px;background:linear-gradient(#183c55,#0d2435);color:#fff;text-align:center;font-weight:900;font-size:clamp(14px,2.4vw,24px);box-shadow:0 12px 32px #000b;opacity:0;pointer-events:none;transition:.18s;z-index:20}
-#toast.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
-@media(max-width:520px){#stage{box-shadow:none}}
-</style>
+<link rel="stylesheet" href="./styles.css?v=20260806-1146">
 </head>
 <body>
 <div id="stage">
-<img id="art" alt="Recycle Rush 游戏界面">
-<button class="hit" data-station="1" style="left:38%;top:25%;width:24%;height:8%" aria-label="升级分类台"></button>
-<button class="hit" data-station="2" style="left:62%;top:25%;width:23%;height:8%" aria-label="升级塑料破碎机"></button>
-<button class="hit" data-station="3" style="left:37%;top:46%;width:24%;height:8%" aria-label="升级纸张压缩机"></button>
-<button class="hit" data-station="4" style="left:62%;top:47%;width:24%;height:8%" aria-label="升级包装站"></button>
-<button class="hit" data-station="5" style="left:37%;top:68%;width:23%;height:8%" aria-label="升级仓库"></button>
-<button class="hit" data-station="6" style="left:64%;top:68%;width:23%;height:8%" aria-label="升级装车区"></button>
-<button class="hit" data-action="double" style="left:88%;top:16%;width:10%;height:13%" aria-label="双倍收益"></button>
-<button class="hit" data-action="truck" style="left:88%;top:30%;width:10%;height:13%" aria-label="快速运输"></button>
-<button class="hit" data-action="offline" style="left:88%;top:44%;width:10%;height:13%" aria-label="离线收益"></button>
-<button class="hit" data-action="factory" style="left:68%;top:87%;width:28%;height:7%" aria-label="工厂升级"></button>
-<button class="hit" data-nav="工厂" style="left:0;top:94%;width:20%;height:6%" aria-label="工厂"></button>
-<button class="hit" data-nav="工人" style="left:20%;top:94%;width:20%;height:6%" aria-label="工人"></button>
-<button class="hit" data-nav="研究" style="left:40%;top:94%;width:20%;height:6%" aria-label="研究"></button>
-<button class="hit" data-nav="收集" style="left:60%;top:94%;width:20%;height:6%" aria-label="收集"></button>
-<button class="hit" data-nav="商店" style="left:80%;top:94%;width:20%;height:6%" aria-label="商店"></button>
-<div id="toast"></div>
+ <img id="art" alt="Recycle Rush 游戏界面">
+ <div id="ui">
+  <div class="hud-live" id="coinsLive"></div><div class="hud-live" id="rateLive"></div><div class="hud-live" id="gemsLive"></div>
+  <div class="hud-live" id="factoryLevelLive"></div><div class="hud-live" id="ecoLive"></div>
+  <div id="stationLive1" class="station-live"></div><div id="stationLive2" class="station-live"></div><div id="stationLive3" class="station-live"></div><div id="stationLive4" class="station-live"></div><div id="stationLive5" class="station-live"></div><div id="stationLive6" class="station-live"></div>
+  <div id="doubleTimer" class="boost-timer"></div><div id="truckTimer" class="boost-timer"></div><div id="offlineTimer" class="boost-timer"></div>
+  <div id="factoryUpgradeLive"></div><div id="missionBadge"></div><div id="navActive" class="nav-active" style="left:0"></div>
+ </div>
+ <div id="fx"></div>
+ <button class="hit" data-action="menu" style="left:94%;top:0;width:6%;height:5.5%" aria-label="设置"></button>
+ <button class="hit" data-action="tasks" style="left:1%;top:10%;width:22%;height:23%" aria-label="任务"></button>
+ <button class="hit" data-station="1" style="left:43%;top:20%;width:20%;height:8%" aria-label="分类台"></button>
+ <button class="hit" data-station="2" style="left:66%;top:20%;width:22%;height:9%" aria-label="塑料破碎机"></button>
+ <button class="hit" data-station="3" style="left:36%;top:38%;width:25%;height:9%" aria-label="纸张压缩机"></button>
+ <button class="hit" data-station="4" style="left:67%;top:41%;width:24%;height:9%" aria-label="包装站"></button>
+ <button class="hit" data-station="5" style="left:35%;top:56%;width:26%;height:9%" aria-label="仓库"></button>
+ <button class="hit" data-station="6" style="left:69%;top:60%;width:25%;height:9%" aria-label="装车区"></button>
+ <button class="hit" data-action="double" style="left:88%;top:11%;width:11%;height:14%" aria-label="双倍收益"></button>
+ <button class="hit" data-action="truck" style="left:88%;top:25%;width:11%;height:14%" aria-label="快速运输"></button>
+ <button class="hit" data-action="offline" style="left:88%;top:39%;width:11%;height:14%" aria-label="离线收益"></button>
+ <button class="hit" data-action="factory" style="left:66%;top:86%;width:32%;height:8%" aria-label="工厂升级"></button>
+ <button class="hit" data-nav="工厂" style="left:0;top:94%;width:20%;height:6%" aria-label="工厂"></button>
+ <button class="hit" data-nav="工人" style="left:20%;top:94%;width:20%;height:6%" aria-label="工人"></button>
+ <button class="hit" data-nav="研究" style="left:40%;top:94%;width:20%;height:6%" aria-label="研究"></button>
+ <button class="hit" data-nav="收集" style="left:60%;top:94%;width:20%;height:6%" aria-label="收集"></button>
+ <button class="hit" data-nav="商店" style="left:80%;top:94%;width:20%;height:6%" aria-label="商店"></button>
+ <div id="tutorial">点击高亮设备查看产能、升级成本和瓶颈。升级后每秒利润会实时增长。<button class="btn green">开始经营</button></div>
+ <div id="toast"></div>
+ <div id="shade"></div>
+ <section id="sheet"><header class="sheet-head"><h2 id="sheetTitle"></h2><button id="closeSheet" aria-label="关闭">×</button></header><div id="sheetBody"></div></section>
 </div>
+<script src="./app.js?v=20260806-1146"></script>
 <script>
 (async()=>{
- const version='20260806-1120';
+ const version='20260806-1146';
  const files=['ui-img-0.txt','ui-img-1p0.txt','ui-img-1p1.txt','ui-img-1p2.txt','ui-img-1p3.txt','ui-img-1p4.txt','ui-img-1b.txt','ui-img-1c.txt','ui-img-1d.txt','ui-img-2.txt','ui-img-3.txt','ui-img-4.txt','ui-img-5.txt','ui-img-6.txt','ui-img-7.txt'];
- const parts=await Promise.all(files.map(n=>fetch(`./payload/${n}?v=${version}`,{cache:'no-store'}).then(r=>{
-   if(!r.ok) throw new Error(`加载失败: ${n}`);
-   return r.text();
- })));
+ const parts=await Promise.all(files.map(n=>fetch(`./payload/${n}?v=${version}`,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`加载失败: ${n}`);return r.text();})));
  const art=document.getElementById('art');
- await new Promise((resolve,reject)=>{
-   art.onload=resolve;
-   art.onerror=()=>reject(new Error('图片数据解码失败'));
-   art.src='data:image/webp;base64,'+parts.join('');
- });
- if(art.naturalWidth!==540||art.naturalHeight!==960){
-   throw new Error(`图片尺寸异常: ${art.naturalWidth}×${art.naturalHeight}`);
- }
- const toast=document.getElementById('toast');
- let timer;
- const show=msg=>{
-   toast.textContent=msg;
-   toast.classList.add('show');
-   clearTimeout(timer);
-   timer=setTimeout(()=>toast.classList.remove('show'),1100);
- };
- document.querySelectorAll('[data-station]').forEach(el=>el.onclick=()=>show(`${el.dataset.station}号设备升级`));
- document.querySelector('[data-action="double"]').onclick=()=>show('双倍收益已启动');
- document.querySelector('[data-action="truck"]').onclick=()=>show('快速运输已启动');
- document.querySelector('[data-action="offline"]').onclick=()=>show('离线收益已结算');
- document.querySelector('[data-action="factory"]').onclick=()=>show('工厂升级需要 256M');
- document.querySelectorAll('[data-nav]').forEach(el=>el.onclick=()=>show(el.dataset.nav));
-})().catch(err=>{
- document.body.innerHTML=`<pre style="color:white;padding:20px;white-space:pre-wrap">${err.stack||err}</pre>`;
-});
+ await new Promise((resolve,reject)=>{art.onload=resolve;art.onerror=()=>reject(new Error('图片数据解码失败'));art.src='data:image/webp;base64,'+parts.join('');});
+ if(art.naturalWidth!==540||art.naturalHeight!==960)throw new Error(`图片尺寸异常: ${art.naturalWidth}×${art.naturalHeight}`);
+ if(!window.RecycleRush)throw new Error('游戏逻辑加载失败');
+ window.RecycleRush.boot();
+})().catch(err=>{document.body.innerHTML=`<pre style="color:white;padding:20px;white-space:pre-wrap">${err.stack||err}</pre>`;});
 </script>
 </body>
 </html>
